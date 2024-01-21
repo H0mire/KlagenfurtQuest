@@ -1,3 +1,7 @@
+klagenfurtquest
+3.2
+file:///C:/Users/Moritz/Android%20Studio%20KlagenfurtQuest/KlagenfurtQuest/
+file:///C:/Users/Moritz/Android%20Studio%20KlagenfurtQuest/KlagenfurtQuest/lib/
 async
 2.18
 file:///C:/Users/Moritz/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.11.0/
@@ -82,10 +86,6 @@ web
 3.2
 file:///C:/Users/Moritz/AppData/Local/Pub/Cache/hosted/pub.dev/web-0.3.0/
 file:///C:/Users/Moritz/AppData/Local/Pub/Cache/hosted/pub.dev/web-0.3.0/lib/
-klagenfurtquest
-3.2
-file:///C:/Users/Moritz/MedInfo2/klagenfurtquest/
-file:///C:/Users/Moritz/MedInfo2/klagenfurtquest/lib/
 sky_engine
 3.2
 file:///C:/src/flutter/bin/cache/pkg/sky_engine/
