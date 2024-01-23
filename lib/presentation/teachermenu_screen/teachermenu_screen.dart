@@ -28,18 +28,17 @@ class TeachermenuScreen extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topCenter,
                                 child: Container(
-                                    width: 259.h,
+                                    width: 280.h,
                                     margin: EdgeInsets.only(top: 22.v),
                                     decoration: AppDecoration.outlineBlack,
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen",
+                                              text: "Willkommen bei",
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
-                                          TextSpan(text: " "),
                                           TextSpan(
-                                              text: "bei KlagenfurtQuest",
+                                              text: "KlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -55,18 +54,32 @@ class TeachermenuScreen extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         child: Container(
             padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 26.v),
-            decoration:
-                BoxDecoration(borderRadius: BorderRadiusStyle.customBorderTL25),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadiusStyle.customBorderTL25,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ]),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               SizedBox(height: 16.v),
               Text("Lehrer", style: CustomTextStyles.displaySmallBold),
               SizedBox(height: 29.v),
               CustomOutlinedButton(
-                  text: "Anmelden",
-                  margin: EdgeInsets.only(left: 8.h),
-                  onPressed: () {
-                    onTapAnmelden(context);
-                  }),
+                text: "Anmelden",
+                margin: EdgeInsets.only(left: 8.h),
+                onPressed: () {
+                  onTapAnmelden(context);
+                },
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
               SizedBox(height: 17.v),
               CustomOutlinedButton(
                   text: "Registrieren",

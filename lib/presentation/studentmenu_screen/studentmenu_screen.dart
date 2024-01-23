@@ -13,6 +13,9 @@ class StudentmenuScreen extends StatelessWidget {
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final FocusNode roomNumberFocus = FocusNode();
+  final FocusNode nameFocus = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -96,17 +99,41 @@ class StudentmenuScreen extends StatelessWidget {
               Text("Schüler", style: CustomTextStyles.displaySmallBold),
               SizedBox(height: 12.v),
               Padding(
-                  padding: EdgeInsets.only(left: 8.h),
-                  child: CustomTextFormField(
+                padding: EdgeInsets.only(left: 8.h),
+                child: GestureDetector(
+                  onTap: () {
+                    FocusScope.of(context).requestFocus(roomNumberFocus);
+                  },
+                  child: Center(
+                    // Zentriere den Text im Container
+                    child: CustomTextFormField(
                       controller: roomNumberController,
-                      hintText: "Raumnummer")),
+                      hintText: "Raumnummer",
+                      focusNode: roomNumberFocus,
+                      autofocus: false, // Setze autofocus auf false
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(height: 12.v),
               Padding(
-                  padding: EdgeInsets.only(left: 8.h),
-                  child: CustomTextFormField(
+                padding: EdgeInsets.only(left: 8.h),
+                child: GestureDetector(
+                  onTap: () {
+                    FocusScope.of(context).requestFocus(nameFocus);
+                  },
+                  child: Center(
+                    // Zentriere den Text im Container
+                    child: CustomTextFormField(
                       controller: nameController,
                       hintText: "Spitzname",
-                      textInputAction: TextInputAction.done)),
+                      textInputAction: TextInputAction.done,
+                      focusNode: nameFocus,
+                      autofocus: false,
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(height: 13.v),
               CustomOutlinedButton(
                 text: "Beitreten",
@@ -115,10 +142,8 @@ class StudentmenuScreen extends StatelessWidget {
                   onTapBeitreten(context);
                 },
                 decoration: BoxDecoration(
-                  color: Colors
-                      .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
-                  borderRadius: BorderRadius.circular(
-                      20.0), // Optional: abgerundete Ecken
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
               ),
               SizedBox(height: 15.v),

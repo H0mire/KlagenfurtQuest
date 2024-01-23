@@ -39,17 +39,16 @@ class TeacherregisterScreen extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topCenter,
                                 child: Container(
-                                    width: 259.h,
+                                    width: 280.h,
                                     margin: EdgeInsets.only(top: 20.v),
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen",
+                                              text: "Willkommen bei",
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
-                                          TextSpan(text: " "),
                                           TextSpan(
-                                              text: "bei KlagenfurtQuest",
+                                              text: "KlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -65,8 +64,18 @@ class TeacherregisterScreen extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         child: Container(
             padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 15.v),
-            decoration:
-                BoxDecoration(borderRadius: BorderRadiusStyle.customBorderTL25),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadiusStyle.customBorderTL25,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               Align(
                   alignment: Alignment.centerLeft,
@@ -77,7 +86,10 @@ class TeacherregisterScreen extends StatelessWidget {
               SizedBox(height: 1.v),
               Padding(
                   padding: EdgeInsets.only(left: 8.h),
-                  child: CustomTextFormField(controller: editTextController)),
+                  child: CustomTextFormField(
+                    controller: editTextController,
+                    autofocus: false,
+                  )),
               SizedBox(height: 11.v),
               Align(
                   alignment: Alignment.centerLeft,
@@ -87,7 +99,10 @@ class TeacherregisterScreen extends StatelessWidget {
                           style: theme.textTheme.titleLarge))),
               Padding(
                   padding: EdgeInsets.only(left: 8.h),
-                  child: CustomTextFormField(controller: recMailController)),
+                  child: CustomTextFormField(
+                    controller: recMailController,
+                    autofocus: false,
+                  )),
               SizedBox(height: 13.v),
               Align(
                   alignment: Alignment.centerLeft,
@@ -98,7 +113,10 @@ class TeacherregisterScreen extends StatelessWidget {
               Padding(
                   padding: EdgeInsets.only(left: 8.h),
                   child: CustomTextFormField(
-                      controller: recPasswordController, obscureText: true)),
+                    controller: recPasswordController,
+                    obscureText: true,
+                    autofocus: false,
+                  )),
               SizedBox(height: 17.v),
               Align(
                   alignment: Alignment.centerLeft,
@@ -111,14 +129,22 @@ class TeacherregisterScreen extends StatelessWidget {
                   child: CustomTextFormField(
                       controller: recPasswordConfirmController,
                       textInputAction: TextInputAction.done,
-                      obscureText: true)),
+                      obscureText: true,
+                      autofocus: false)),
               SizedBox(height: 26.v),
               CustomOutlinedButton(
-                  text: "Registrieren",
-                  margin: EdgeInsets.only(left: 8.h),
-                  onPressed: () {
-                    onTapRegistrieren(context);
-                  }),
+                text: "Registrieren",
+                margin: EdgeInsets.only(left: 8.h),
+                onPressed: () {
+                  onTapRegistrieren(context);
+                },
+                decoration: BoxDecoration(
+                  color: Colors
+                      .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
+                  borderRadius: BorderRadius.circular(
+                      20.0), // Optional: abgerundete Ecken
+                ),
+              ),
               SizedBox(height: 12.v),
               Text("Hilfe", style: theme.textTheme.titleLarge),
               SizedBox(height: 10.v)

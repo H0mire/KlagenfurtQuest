@@ -44,15 +44,7 @@ class RoomviewstudentScreen extends StatelessWidget {
                         SizedBox(height: 11.v),
                         _buildStudentElement(context, userName: "Peter Linder"),
                         SizedBox(height: 11.v),
-                        CustomTextFormField(
-                            controller: maxController,
-                            hintText: "Max Murnig",
-                            textInputAction: TextInputAction.done,
-                            borderDecoration:
-                                TextFormFieldStyleHelper.outlineBlack,
-                            filled: true,
-                            fillColor: theme.colorScheme.onPrimaryContainer
-                                .withOpacity(1)),
+                        _buildStudentElement(context, userName: "Max Murnig"),
                         SizedBox(height: 11.v),
                         _buildStudentElement(context, userName: "Cynthia Lob"),
                         SizedBox(height: 11.v),
@@ -61,11 +53,18 @@ class RoomviewstudentScreen extends StatelessWidget {
                       ])),
                   SizedBox(height: 22.v),
                   CustomOutlinedButton(
-                      text: "Spiel starten",
-                      margin: EdgeInsets.only(left: 8.h),
-                      onPressed: () {
-                        onTapSpielStarten(context);
-                      }),
+                    text: "Spiel starten",
+                    margin: EdgeInsets.only(left: 8.h),
+                    onPressed: () {
+                      onTapSpielStarten(context);
+                    },
+                    decoration: BoxDecoration(
+                      color: Colors
+                          .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Optional: abgerundete Ecken
+                    ),
+                  ),
                   SizedBox(height: 10.v),
                   Text("Hilfe", style: theme.textTheme.titleLarge)
                 ]))));
