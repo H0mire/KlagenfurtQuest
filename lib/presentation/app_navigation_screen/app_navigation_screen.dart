@@ -49,6 +49,12 @@ class AppNavigationScreen extends StatelessWidget {
                           onTapScreenTitle: () => onTapScreenTitle(
                               context, AppRoutes.teacherarchiveScreen),
                         ),
+                         _buildScreenTitle(
+                          context,
+                          screenTitle: "SpielansichtStationStarten",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.spielansichtStationStarten),
+                        ),
                         _buildScreenTitle(
                           context,
                           screenTitle: "TeacherRegister",

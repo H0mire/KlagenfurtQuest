@@ -19,12 +19,23 @@ class SpielansichtStationInfosOneScreen extends StatelessWidget {
                       width: 355.h,
                       alignment: Alignment.center),
                   Align(
-                      alignment: Alignment.center,
+                      alignment: Alignment(0, 0.2),
                       child: Container(
+                          constraints: BoxConstraints(maxWidth: 332.h),
                           padding: EdgeInsets.symmetric(
                               horizontal: 25.h, vertical: 43.v),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadiusStyle.roundedBorder10),
+                            color: Colors.white,
+                            borderRadius: BorderRadiusStyle.customBorderTL25,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
                           child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,

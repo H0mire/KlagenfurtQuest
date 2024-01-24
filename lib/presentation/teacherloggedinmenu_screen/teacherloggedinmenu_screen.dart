@@ -35,20 +35,17 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
                       Align(
                         alignment: Alignment.topCenter,
                         child: Container(
-                          width: 259.h,
+                          width: 280.h,
                           margin: EdgeInsets.only(top: 22.v),
                           child: RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "Willkommen",
+                                  text: "Willkommen bei",
                                   style: CustomTextStyles.displaySmallffffa500,
                                 ),
                                 TextSpan(
-                                  text: " ",
-                                ),
-                                TextSpan(
-                                  text: "bei KlagenfurtQuest",
+                                  text: "KlagenfurtQuest",
                                   style: CustomTextStyles.displaySmallffffffff,
                                 ),
                               ],
@@ -79,7 +76,16 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
           vertical: 26.v,
         ),
         decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadiusStyle.customBorderTL25,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(0, 3),
+            ),
+          ],
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -93,6 +99,10 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
             CustomOutlinedButton(
               text: "Raum erstellen",
               margin: EdgeInsets.only(left: 8.h),
+              decoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
             ),
             SizedBox(height: 17.v),
             CustomOutlinedButton(
@@ -103,11 +113,13 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
             ),
             SizedBox(height: 16.v),
             CustomOutlinedButton(
-              text: "Ausloggen",
-              margin: EdgeInsets.only(left: 8.h),
-              buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
-              buttonTextStyle: theme.textTheme.displaySmall!,
-            ),
+                text: "Ausloggen",
+                margin: EdgeInsets.only(left: 8.h),
+                buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
+                buttonTextStyle: theme.textTheme.displaySmall!,
+                onPressed: () {
+                  onTapZurck(context);
+                }),
             SizedBox(height: 32.v),
             Text(
               "Hilfe",
@@ -117,5 +129,10 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Navigates to the mainmenuScreen when the action is triggered.
+  onTapZurck(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }
 }

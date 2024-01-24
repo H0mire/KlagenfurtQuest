@@ -29,6 +29,7 @@ import 'package:klagenfurtquest_final/presentation/studentmenu_screen/studentmen
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_quiz_one_screen/spielansicht_station_quiz_one_screen.dart';
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_quiz_two_screen/spielansicht_station_quiz_two_screen.dart';
 import 'package:klagenfurtquest_final/presentation/app_navigation_screen/app_navigation_screen.dart';
+import 'package:klagenfurtquest_final/presentation/spielansicht_station_starten_dialog/spielansicht_station_starten_dialog.dart';
 
 class AppRoutes {
   static const String mainmenuScreen = '/mainmenu_screen';
@@ -103,6 +104,9 @@ class AppRoutes {
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
+  static const String spielansichtStationStarten =
+      '/spielansicht_station_starten_dialog';
+
   static Map<String, WidgetBuilder> routes = {
     mainmenuScreen: (context) => MainmenuScreen(),
     mainmenulanguageconfigScreen: (context) => MainmenulanguageconfigScreen(),
@@ -140,6 +144,7 @@ class AppRoutes {
         SpielansichtStationQuizOneScreen(),
     spielansichtStationQuizTwoScreen: (context) =>
         SpielansichtStationQuizTwoScreen(),
-    appNavigationScreen: (context) => AppNavigationScreen()
+    appNavigationScreen: (context) => AppNavigationScreen(),
+    spielansichtStationStarten: (context) => SpielansichtStationStartenDialog()
   };
 }

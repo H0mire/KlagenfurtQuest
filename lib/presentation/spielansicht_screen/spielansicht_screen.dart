@@ -118,9 +118,38 @@ class SpielansichtScreen extends StatelessWidget {
               height: 69.adaptSize,
               width: 69.adaptSize,
             ),
+            SizedBox(width: 16.h), // Platzhalter für den Abstand zum Button
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  onTapWeiter(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.orange,
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(16.0), // Ändere den Radius
+                  ),
+                  padding: EdgeInsets.all(16.0), // Ändere das Padding
+                  minimumSize: Size(0, 56), // Ändere die Mindestgröße
+                ),
+                child: Text(
+                  'Button',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+/// Navigates to the teacherloggedinmenuScreen when the action is triggered.
+onTapWeiter(BuildContext context) {
+  Navigator.pushNamed(context, AppRoutes.spielansichtStationStarten);
 }

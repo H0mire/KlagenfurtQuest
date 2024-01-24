@@ -47,7 +47,6 @@ class SpielansichtStationQuizTwoScreen extends StatelessWidget {
                     SizedBox(height: 19.v),
                     _buildQuestionComponent(context),
                     SizedBox(height: 33.v),
-                    _buildQuestionComponent1(context),
                     SizedBox(height: 73.v),
                   ],
                 ),
@@ -143,93 +142,6 @@ class SpielansichtStationQuizTwoScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildQuestionComponent1(BuildContext context) {
-    return SizedBox(
-      height: 324.v,
-      width: 301.h,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              margin: EdgeInsets.only(right: 1.h),
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.h,
-                vertical: 13.v,
-              ),
-              decoration: AppDecoration.outlineBlack900.copyWith(
-                borderRadius: BorderRadiusStyle.roundedBorder10,
-              ),
-              child: Container(
-                width: 252.h,
-                margin: EdgeInsets.only(right: 23.h),
-                child: Text(
-                  "Neben dem Marmordenkmal ziert welches weitere Andenken den Park?",
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.headlineSmall,
-                ),
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: 1.h,
-                bottom: 13.v,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 300.h,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 11.h,
-                      vertical: 2.v,
-                    ),
-                    decoration: AppDecoration.outlinePrimary3.copyWith(
-                      borderRadius: BorderRadiusStyle.roundedBorder20,
-                    ),
-                    child: Text(
-                      "A: Schillereiche",
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  ),
-                  SizedBox(height: 10.v),
-                  Padding(
-                    padding: EdgeInsets.only(left: 11.h),
-                    child: Text(
-                      "B: Schillerstatue",
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  ),
-                  SizedBox(height: 14.v),
-                  Padding(
-                    padding: EdgeInsets.only(left: 11.h),
-                    child: Text(
-                      "C: Schillerbrunnen",
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  ),
-                  SizedBox(height: 14.v),
-                  Padding(
-                    padding: EdgeInsets.only(left: 11.h),
-                    child: Text(
-                      "D: Schillerbank",
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   /// Section Widget
   Widget _buildContinueButton(BuildContext context) {
