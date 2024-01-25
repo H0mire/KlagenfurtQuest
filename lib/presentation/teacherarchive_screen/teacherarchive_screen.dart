@@ -29,17 +29,16 @@ class TeacherarchiveScreen extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topCenter,
                                 child: Container(
-                                    width: 259.h,
+                                    width: 280.h,
                                     margin: EdgeInsets.only(top: 22.v),
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen",
+                                              text: "Willkommen bei",
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
-                                          TextSpan(text: " "),
                                           TextSpan(
-                                              text: "bei KlagenfurtQuest",
+                                              text: "KlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -51,7 +50,17 @@ class TeacherarchiveScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               horizontal: 6.h, vertical: 10.v),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadiusStyle.customBorderTL25),
+                            color: Colors.white,
+                            borderRadius: BorderRadiusStyle.customBorderTL25,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
                           child:
                               Column(mainAxisSize: MainAxisSize.min, children: [
                             Text("Archiv",
@@ -62,6 +71,10 @@ class TeacherarchiveScreen extends StatelessWidget {
                             CustomOutlinedButton(
                                 text: "Ausloggen",
                                 margin: EdgeInsets.only(left: 7.h, right: 9.h),
+                                decoration: BoxDecoration(
+                                  color: Colors.orange,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
                                 onPressed: () {
                                   onTapAusloggen(context);
                                 }),
@@ -90,6 +103,11 @@ class TeacherarchiveScreen extends StatelessWidget {
 
   /// Navigates to the mainmenuScreen when the action is triggered.
   onTapAusloggen(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
+  }
+
+//für Button zum Aufrufen der Ergebnislisten archivierter Tours
+  onTapTourArchived(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }
 }

@@ -149,7 +149,7 @@ class SpielansichtScreen extends StatelessWidget {
   }
 }
 
-/// Navigates to the teacherloggedinmenuScreen when the action is triggered.
+/// Navigates to the spielansicht_station_starten when the action is triggered.
 onTapWeiter(BuildContext context) {
   Navigator.pushNamed(context, AppRoutes.spielansichtStationStarten);
 }

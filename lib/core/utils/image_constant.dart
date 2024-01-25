@@ -40,4 +40,14 @@ class ImageConstant {
   static String imgImgquizbg = '$imagePath/img_imgquizbg.png';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
+
+  static String imgFailed = '$imagePath/img_failed.png';
+
+  static String imgParty = '$imagePath/img_party.png';
+
+  static String imgApplaus = '$imagePath/img_applaus.png';
+
+  static String imgPokal = '$imagePath/img_pokal.png';
+
+  static String imgLocate='$imagePath/img_locate.png';
 }

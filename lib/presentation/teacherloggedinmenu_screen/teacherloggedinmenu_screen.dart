@@ -97,20 +97,24 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
             ),
             SizedBox(height: 33.v),
             CustomOutlinedButton(
-              text: "Raum erstellen",
-              margin: EdgeInsets.only(left: 8.h),
-              decoration: BoxDecoration(
-                color: Colors.orange,
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-            ),
+                text: "Raum erstellen",
+                margin: EdgeInsets.only(left: 8.h),
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                onPressed: () {
+                  onTapTeacherTourSelect(context);
+                }),
             SizedBox(height: 17.v),
             CustomOutlinedButton(
-              text: "Archiv",
-              margin: EdgeInsets.only(left: 8.h),
-              buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
-              buttonTextStyle: theme.textTheme.displaySmall!,
-            ),
+                text: "Archiv",
+                margin: EdgeInsets.only(left: 8.h),
+                buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
+                buttonTextStyle: theme.textTheme.displaySmall!,
+                onPressed: () {
+                  onTapTeacherArchiv(context);
+                }),
             SizedBox(height: 16.v),
             CustomOutlinedButton(
                 text: "Ausloggen",
@@ -134,5 +138,13 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
   /// Navigates to the mainmenuScreen when the action is triggered.
   onTapZurck(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
+  }
+
+  onTapTeacherTourSelect(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);
+  }
+
+  onTapTeacherArchiv(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.teacherarchiveScreen);
   }
 }

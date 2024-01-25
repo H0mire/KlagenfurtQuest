@@ -44,10 +44,18 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
                       ])),
                   SizedBox(height: 31.v),
                   CustomOutlinedButton(
-                      text: "Zum Menü",
-                      onPressed: () {
-                        onTapZumMen(context);
-                      }),
+                    text: "Zum Menü",
+                    buttonTextStyle: theme.textTheme.displaySmall!,
+                    onPressed: () {
+                      onTapZumMen(context);
+                    },
+                    decoration: BoxDecoration(
+                      color: Colors
+                          .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Optional: abgerundete Ecken
+                    ),
+                  ),
                   SizedBox(height: 11.v),
                   Text("Hilfe", style: theme.textTheme.titleLarge)
                 ]))));
@@ -64,10 +72,10 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomImageView(
-                  imagePath: ImageConstant.imgClose,
+                  imagePath: ImageConstant.imgPokal,
                   height: 31.v,
                   width: 25.h,
-                  margin: EdgeInsets.only(left: 3.h, bottom: 4.v)),
+                  margin: EdgeInsets.only(left: 3.h, top: 5.v)),
               Padding(
                   padding: EdgeInsets.only(left: 6.h, top: 5.v, bottom: 4.v),
                   child:
@@ -86,20 +94,30 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
     required String time,
   }) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 3.h, vertical: 11.v),
-        decoration: AppDecoration.outlineBlack9003
-            .copyWith(borderRadius: BorderRadiusStyle.roundedBorder10),
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      padding: EdgeInsets.symmetric(horizontal: 3.h, vertical: 11.v),
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 223, 221, 221), // Hintergrundfarbe auf hellgrau ändern
+        borderRadius: BorderRadiusStyle.roundedBorder10,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
           Padding(
-              padding: EdgeInsets.only(left: 11.h),
-              child: Text(name,
-                  style: theme.textTheme.titleLarge!
-                      .copyWith(color: appTheme.black900))),
-          Text(time,
+            padding: EdgeInsets.only(left: 11.h),
+            child: Text(
+              name,
               style: theme.textTheme.titleLarge!
-                  .copyWith(color: appTheme.black900))
-        ]));
+                  .copyWith(color: appTheme.black900),
+            ),
+          ),
+          Text(
+            time,
+            style:
+                theme.textTheme.titleLarge!.copyWith(color: appTheme.black900),
+          ),
+        ],
+      ),
+    );
   }
 
   /// Navigates to the mainmenuScreen when the action is triggered.

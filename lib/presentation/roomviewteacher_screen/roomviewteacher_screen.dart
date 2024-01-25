@@ -46,15 +46,8 @@ class RoomviewteacherScreen extends StatelessWidget {
                         _buildStudentElementWithCheck(context,
                             userName: "Peter Linder"),
                         SizedBox(height: 11.v),
-                        CustomTextFormField(
-                            controller: maxController,
-                            hintText: "Max Murnig",
-                            textInputAction: TextInputAction.done,
-                            borderDecoration:
-                                TextFormFieldStyleHelper.outlineBlack,
-                            filled: true,
-                            fillColor: theme.colorScheme.onPrimaryContainer
-                                .withOpacity(1)),
+                        _buildStudentElementWithCheck(context,
+                            userName: "Max Murnig"),
                         SizedBox(height: 11.v),
                         _buildStudentElementWithCheck(context,
                             userName: "Cynthia Lob"),
@@ -65,11 +58,16 @@ class RoomviewteacherScreen extends StatelessWidget {
                       ])),
                   SizedBox(height: 22.v),
                   CustomOutlinedButton(
-                      text: "Spiel starten",
-                      margin: EdgeInsets.only(left: 8.h),
-                      onPressed: () {
-                        onTapSpielStarten(context);
-                      }),
+                    text: "Spiel starten",
+                    margin: EdgeInsets.only(left: 8.h),
+                    onPressed: () {
+                      onTapSpielStarten(context);
+                    },
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
                   SizedBox(height: 11.v),
                   Text("Hilfe", style: theme.textTheme.titleLarge)
                 ]))));

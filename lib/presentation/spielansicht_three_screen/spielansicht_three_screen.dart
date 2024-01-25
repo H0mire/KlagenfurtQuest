@@ -35,19 +35,19 @@ class SpielansichtThreeScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                _buildMap(context),
+                _buildMapSection(context),
                 Spacer(),
               ],
             ),
           ),
         ),
-        bottomNavigationBar: _buildComponentDirections(context),
+        bottomNavigationBar: _buildDirectionsSection(context),
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildMap(BuildContext context) {
+  Widget _buildMapSection(BuildContext context) {
     return SizedBox(
       height: 497.v,
       width: 351.h,
@@ -73,7 +73,7 @@ class SpielansichtThreeScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildComponentDirections(BuildContext context) {
+  Widget _buildDirectionsSection(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
         left: 68.h,
@@ -118,9 +118,38 @@ class SpielansichtThreeScreen extends StatelessWidget {
               height: 69.adaptSize,
               width: 69.adaptSize,
             ),
+            SizedBox(width: 16.h), // Platzhalter für den Abstand zum Button
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  onTapStationStarting(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.orange,
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(16.0), // Ändere den Radius
+                  ),
+                  padding: EdgeInsets.all(16.0), // Ändere das Padding
+                  minimumSize: Size(0, 56), // Ändere die Mindestgröße
+                ),
+                child: Text(
+                  'Button',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  /// Navigates to the spielansicht_station_starting when the action is triggered.
+  onTapStationStarting(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.spielansichtStationStarting);
   }
 }

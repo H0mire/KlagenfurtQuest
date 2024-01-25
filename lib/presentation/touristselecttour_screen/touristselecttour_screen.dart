@@ -1,4 +1,5 @@
 import '../touristselecttour_screen/widgets/tourcomponent1_item_widget.dart';
+import '../touristselecttour_screen/widgets/tourcomponent2_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
@@ -66,7 +67,9 @@ class TouristselecttourScreen extends StatelessWidget {
                             Text("Tour wählen",
                                 style: CustomTextStyles.displaySmallSemiBold),
                             SizedBox(height: 6.v),
-                            _buildTourComponent(context),
+                            _buildParkTour(context),
+                            SizedBox(height: 6.v),
+                            _buildAltstadtTour(context),
                             SizedBox(height: 23.v),
                             CustomOutlinedButton(
                               text: "Zurück zum Menü",
@@ -75,10 +78,8 @@ class TouristselecttourScreen extends StatelessWidget {
                                 onTapAusloggen(context);
                               },
                               decoration: BoxDecoration(
-                                color: Colors
-                                    .orange, 
-                                borderRadius: BorderRadius.circular(
-                                    20.0),
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
                             ),
                             SizedBox(height: 15.v),
@@ -89,7 +90,7 @@ class TouristselecttourScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildTourComponent(BuildContext context) {
+  Widget _buildParkTour(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(right: 1.h),
         child: ListView.separated(
@@ -98,10 +99,27 @@ class TouristselecttourScreen extends StatelessWidget {
             separatorBuilder: (context, index) {
               return SizedBox(height: 13.v);
             },
-            itemCount: 2,
+            itemCount: 1,
             itemBuilder: (context, index) {
               return Tourcomponent1ItemWidget(onTapChooseButtonText: () {
                 onTapChooseButtonText(context);
+              });
+            }));
+  }
+
+  Widget _buildAltstadtTour(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.only(right: 1.h),
+        child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 13.v);
+            },
+            itemCount: 1,
+            itemBuilder: (context, index) {
+              return Tourcomponent2ItemWidget(onTapChooseButtonText: () {
+                //onTapChooseButtonText(context); noch nicht verfügbar
               });
             }));
   }

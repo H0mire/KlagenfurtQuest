@@ -15,23 +15,24 @@ class SpielansichtStationQuizOneScreen extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              _buildContinueButton(context),
+              // Hintergrund und durchlässiges Rechteck
+              CustomImageView(
+                imagePath: ImageConstant.imgGroup3,
+                height: SizeUtils.height,
+                width: double.maxFinite,
+                alignment: Alignment.center,
+              ),
               Align(
                 alignment: Alignment.center,
                 child: SingleChildScrollView(
                   child: Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: 12.h, vertical: 17.v),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(ImageConstant.imgGroup3),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         SizedBox(height: 10.v),
+                        // Weißes Rechteck mit Inhalt
                         Container(
                           margin: EdgeInsets.only(right: 1.h),
                           padding: EdgeInsets.symmetric(
@@ -51,27 +52,32 @@ class SpielansichtStationQuizOneScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               SizedBox(height: 3.v),
-                              Text("Schiller Park",
-                                  style: CustomTextStyles.displaySmallBold),
+                              Text(
+                                "Schiller Park",
+                                style: CustomTextStyles.displaySmallBold,
+                              ),
                               SizedBox(height: 19.v),
+                              // Erste Frage
                               _buildQuizQuestion(context),
                               SizedBox(height: 33.v),
+                              // Zweite Frage
                               _buildSchillerParkQuestion(context),
                               SizedBox(height: 33.v),
-                              GestureDetector(
-                                onTap: () {
-                                  onTapTxtBtnBack(context);
-                                },
-                                child: Container(
-                                  width: 231.h,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 30.h,
-                                    vertical: 1.v,
-                                  ),
-                                  decoration: AppDecoration.outlineBlack9004
-                                      .copyWith(
-                                          borderRadius: BorderRadiusStyle
-                                              .roundedBorder20),
+                              // Weiter-Button
+                              Container(
+                                width: 231.h,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 30.h,
+                                  vertical: 1.v,
+                                ),
+                                decoration: AppDecoration.outlineBlack9004
+                                    .copyWith(
+                                        borderRadius:
+                                            BorderRadiusStyle.roundedBorder20),
+                                child: TextButton(
+                                  onPressed: () {
+                                    onTapQuizGeschafft(context);
+                                  },
                                   child: Text(
                                     "Weiter",
                                     style: CustomTextStyles
@@ -79,6 +85,51 @@ class SpielansichtStationQuizOneScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 33.v),
+                              Container(
+                                width: 231.h,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 30.h,
+                                  vertical: 1.v,
+                                ),
+                                decoration: AppDecoration.outlineBlack9004
+                                    .copyWith(
+                                        borderRadius:
+                                            BorderRadiusStyle.roundedBorder20),
+                                child: TextButton(
+                                  onPressed: () {
+                                    onTapQuizFailed(context);
+                                  },
+                                  child: Text(
+                                    "Falsch-Sc",
+                                    style: CustomTextStyles
+                                        .headlineLargeOnPrimaryContainer,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 33.v),
+                              Container(
+                                width: 231.h,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 30.h,
+                                  vertical: 1.v,
+                                ),
+                                decoration: AppDecoration.outlineBlack9004
+                                    .copyWith(
+                                        borderRadius:
+                                            BorderRadiusStyle.roundedBorder20),
+                                child: TextButton(
+                                  onPressed: () {
+                                    onTapQuizVollendet(context);
+                                  },
+                                  child: Text(
+                                    "Finished",
+                                    style: CustomTextStyles
+                                        .headlineLargeOnPrimaryContainer,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 10.v),
                             ],
                           ),
                         ),
@@ -90,20 +141,6 @@ class SpielansichtStationQuizOneScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildContinueButton(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        margin: EdgeInsets.only(left: 24.h, right: 30.h, bottom: 10.v),
-        padding: EdgeInsets.symmetric(horizontal: 104.h, vertical: 7.v),
-        decoration: AppDecoration.outlinePrimary4
-            .copyWith(borderRadius: BorderRadiusStyle.roundedBorder20),
-        child: Text("Weiter", style: theme.textTheme.headlineMedium),
       ),
     );
   }
@@ -171,11 +208,9 @@ class SpielansichtStationQuizOneScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildSchillerParkQuestion(BuildContext context) {
     return SizedBox(
-      height: 600.v,
-      width: 301.h,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
+        height: 600.v,
+        width: 301.h,
+        child: Stack(alignment: Alignment.bottomCenter, children: [
           Align(
             alignment: Alignment.center,
             child: Container(
@@ -243,14 +278,19 @@ class SpielansichtStationQuizOneScreen extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
+          )
+        ]));
   }
 
-  /// Navigates to the spielansichtQuizBeendetScreen when the action is triggered.
-  onTapTxtBtnBack(BuildContext context) {
+  onTapQuizGeschafft(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtQuizBeendetScreen);
+  }
+
+  onTapQuizFailed(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.spielansichtQuizFailedScreen);
+  }
+
+  onTapQuizVollendet(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.spielansichtQuizGeschafftThreeScreen);
   }
 }

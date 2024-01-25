@@ -3,10 +3,7 @@ import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class SpielansichtQuizBeendetScreen extends StatelessWidget {
-  const SpielansichtQuizBeendetScreen({Key? key})
-      : super(
-          key: key,
-        );
+  const SpielansichtQuizBeendetScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,31 +30,36 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 215.v),
-                Container(
-                  margin: EdgeInsets.only(right: 1.h),
-                  padding: EdgeInsets.fromLTRB(11.h, 2.v, 11.h, 200.v),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadiusStyle.roundedBorder10,
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 2.v),
-                      Text(
-                        "Schiller Park",
-                        style: CustomTextStyles.displaySmallBold,
-                      ),
-                      SizedBox(height: 26.v),
-                      _buildResultComponent(context),
-                      SizedBox(height: 29.v),
-                      CustomOutlinedButton(
-                        height: 53.v,
-                        text: "Zur Map",
-                        margin: EdgeInsets.only(left: 7.h),
-                        buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
-                        buttonTextStyle: theme.textTheme.headlineMedium!,
-                      ),
-                      SizedBox(height: 5.v),
-                    ],
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 1.h),
+                    padding: EdgeInsets.fromLTRB(11.h, 2.v, 11.h, 0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadiusStyle.roundedBorder10,
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 2.v),
+                        Text(
+                          "Schiller Park",
+                          style: CustomTextStyles.displaySmallBold,
+                        ),
+                        SizedBox(height: 26.v),
+                        _buildResultComponent(context),
+                        SizedBox(height: 29.v),
+                        CustomOutlinedButton(
+                          height: 53.v,
+                          text: "Zur Map",
+                          margin: EdgeInsets.only(left: 7.h),
+                          onPressed: () {
+                            onTapSpielStarten(context);
+                          },
+                          buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
+                          buttonTextStyle: theme.textTheme.headlineMedium!,
+                        ),
+                        SizedBox(height: 5.v),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 4.v),
@@ -69,7 +71,6 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
   Widget _buildResultComponent(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 6.h),
@@ -95,7 +96,7 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
           ),
           SizedBox(height: 18.v),
           CustomImageView(
-            imagePath: ImageConstant.imgOffer,
+            imagePath: ImageConstant.imgDone,
             height: 63.adaptSize,
             width: 63.adaptSize,
           ),
@@ -103,5 +104,9 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  onTapSpielStarten(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.spielansichtScreen);
   }
 }

@@ -9,28 +9,31 @@ class SpielansichtStationStartingDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: 332.h,
-        padding: EdgeInsets.fromLTRB(12.h, 290.v, 12.h, 16.v),
+        padding: EdgeInsets.all(12.h),
         decoration: AppDecoration.fillOnPrimaryContainer
             .copyWith(borderRadius: BorderRadiusStyle.roundedBorder20),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          SizedBox(
-              width: 208.h,
-              child: Text("Willkommen bei der Station!",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: CustomTextStyles.headlineMediumBlack900)),
-          SizedBox(height: 13.v),
-          CustomOutlinedButton(
-              height: 53.v,
-              text: "Starten",
-              buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
-              buttonTextStyle: theme.textTheme.headlineMedium!,
-              onPressed: () {
-                onTapStarten(context);
-              }),
-          SizedBox(height: 5.v)
-        ]));
+        child: Container(
+            height: 200.v, // Höhe des inneren Containers
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                "Willkommen bei der Station!",
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: CustomTextStyles.headlineMediumBlack900,
+              ),
+              SizedBox(height: 13.v),
+              CustomOutlinedButton(
+                  height: 53.v,
+                  text: "Starten",
+                  buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
+                  buttonTextStyle: theme.textTheme.headlineMedium!,
+                  onPressed: () {
+                    onTapStarten(context);
+                  }),
+              SizedBox(height: 5.v)
+            ])));
   }
 
   /// Navigates to the spielansichtStationInfosOneScreen when the action is triggered.

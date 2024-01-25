@@ -55,8 +55,11 @@ class SpielansichtQuizFailedScreen extends StatelessWidget {
                       SizedBox(height: 20.v),
                       CustomOutlinedButton(
                         height: 53.v,
-                        text: "Zur Map",
+                        text: "Zurück zum Quiz",
                         margin: EdgeInsets.only(left: 7.h),
+                        onPressed: () {
+                          onTapStarten(context);
+                        },
                         buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
                         buttonTextStyle: theme.textTheme.headlineMedium!,
                       ),
@@ -97,7 +100,7 @@ class SpielansichtQuizFailedScreen extends StatelessWidget {
           ),
           SizedBox(height: 29.v),
           CustomImageView(
-            imagePath: ImageConstant.imgUser,
+            imagePath: ImageConstant.imgFailed,
             height: 63.adaptSize,
             width: 63.adaptSize,
           ),
@@ -105,5 +108,10 @@ class SpielansichtQuizFailedScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// Navigates to the spielansichtStationInfosScreen when the action is triggered.
+  onTapStarten(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosOneScreen);
   }
 }

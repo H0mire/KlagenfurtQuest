@@ -53,7 +53,7 @@ class MonitoringviewScreen extends StatelessWidget {
             separatorBuilder: (context, index) {
               return SizedBox(height: 11.v);
             },
-            itemCount: 6,
+            itemCount: 1,
             itemBuilder: (context, index) {
               return StudentelementlistItemWidget();
             }));
@@ -61,6 +61,10 @@ class MonitoringviewScreen extends StatelessWidget {
 
   /// Navigates to the teacherselecttourScreen when the action is triggered.
   onTapBeenden(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);
+  }
+  //Methode für den Icon-Button für die StudentLocation
+  onTapViewStudentLocation(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);
   }
 }

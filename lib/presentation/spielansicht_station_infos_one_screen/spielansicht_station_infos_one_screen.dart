@@ -20,51 +20,57 @@ class SpielansichtStationInfosOneScreen extends StatelessWidget {
                       alignment: Alignment.center),
                   Align(
                       alignment: Alignment(0, 0.2),
-                      child: Container(
-                          constraints: BoxConstraints(maxWidth: 332.h),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 25.h, vertical: 43.v),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadiusStyle.customBorderTL25,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
+                      child: SingleChildScrollView(
+                          child: Container(
+                              constraints: BoxConstraints(
+                                maxWidth: 332.h,
                               ),
-                            ],
-                          ),
-                          child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("Schiller Park",
-                                    style: CustomTextStyles.displaySmallBold),
-                                SizedBox(height: 14.v),
-                                Container(
-                                    width: 297.h,
-                                    margin:
-                                        EdgeInsets.only(left: 5.h, right: 7.h),
-                                    child: Text(
-                                        "Der Schillerpark, eröffnet im Jahr 1905, entstand anlässlich des hundertsten Todestags des Dichters Friedrich Schillers. Ursprünglich als Stadtpark geplant, wurde er auf einem Teil des zugeschütteten Klagenfurters Stadtgrabens angelegt.\n\nBereits im Eröffnungsjahr wurde die “Schillereiche” gepflanzt und seit 1928 ziert ein Marmordenkmal den Park",
-                                        maxLines: 17,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: theme.textTheme.headlineSmall)),
-                                SizedBox(height: 85.v),
-                                CustomOutlinedButton(
-                                    height: 53.v,
-                                    text: "Zum Quiz",
-                                    buttonStyle:
-                                        CustomButtonStyles.outlinePrimaryTL201,
-                                    buttonTextStyle:
-                                        theme.textTheme.headlineMedium!,
-                                    onPressed: () {
-                                      onTapZumQuiz(context);
-                                    }),
-                                SizedBox(height: 4.v)
-                              ])))
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 25.h, vertical: 43.v),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadiusStyle.customBorderTL25,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.2),
+                                    spreadRadius: 2,
+                                    blurRadius: 5,
+                                    offset: Offset(0, 3),
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("Schiller Park",
+                                        style:
+                                            CustomTextStyles.displaySmallBold),
+                                    SizedBox(height: 14.v),
+                                    Container(
+                                        width: 297.h,
+                                        margin: EdgeInsets.only(
+                                            left: 5.h, right: 7.h),
+                                        child: Text(
+                                            "Der Schillerpark, eröffnet im Jahr 1905, entstand anlässlich des hundertsten Todestags des Dichters Friedrich Schillers. Ursprünglich als Stadtpark geplant, wurde er auf einem Teil des zugeschütteten Klagenfurters Stadtgrabens angelegt.\n\nBereits im Eröffnungsjahr wurde die “Schillereiche” gepflanzt und seit 1928 ziert ein Marmordenkmal den Park.",
+                                            maxLines: 20,
+                                            overflow: TextOverflow.visible,
+                                            style:
+                                                theme.textTheme.headlineSmall)),
+                                    SizedBox(height: 85.v),
+                                    CustomOutlinedButton(
+                                        height: 53.v,
+                                        text: "Zum Quiz",
+                                        buttonStyle: CustomButtonStyles
+                                            .outlinePrimaryTL201,
+                                        buttonTextStyle:
+                                            theme.textTheme.headlineMedium!,
+                                        onPressed: () {
+                                          onTapZumQuiz(context);
+                                        }),
+                                    SizedBox(height: 4.v)
+                                  ]))))
                 ]))));
   }
 

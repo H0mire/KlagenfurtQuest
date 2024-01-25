@@ -47,7 +47,7 @@ class SpielansichtQuizGeschafftScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadiusStyle.roundedBorder10),
               child: Container(
-                  height: 217.v,
+                  height: 240.v,
                   width: 300.h,
                   padding:
                       EdgeInsets.symmetric(horizontal: 32.h, vertical: 6.v),
@@ -55,17 +55,17 @@ class SpielansichtQuizGeschafftScreen extends StatelessWidget {
                       borderRadius: BorderRadiusStyle.roundedBorder10),
                   child: Stack(alignment: Alignment.bottomRight, children: [
                     CustomImageView(
-                        imagePath: ImageConstant.imgClose,
-                        height: 97.v,
-                        width: 80.h,
+                        imagePath: ImageConstant.imgParty,
+                        height: 75.v,
+                        width: 65.h,
                         alignment: Alignment.bottomLeft,
-                        margin: EdgeInsets.only(left: 23.h)),
+                        margin: EdgeInsets.only(left: 45.h, bottom: 17.v)),
                     CustomImageView(
-                        imagePath: ImageConstant.imgClose,
-                        height: 97.v,
-                        width: 80.h,
+                        imagePath: ImageConstant.imgApplaus,
+                        height: 75.v,
+                        width: 65.h,
                         alignment: Alignment.bottomRight,
-                        margin: EdgeInsets.only(right: 28.h)),
+                        margin: EdgeInsets.only(right: 37.h, bottom: 17.v)),
                     Align(
                         alignment: Alignment.topCenter,
                         child: Container(

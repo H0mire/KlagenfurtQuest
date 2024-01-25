@@ -1,4 +1,5 @@
 import '../teacherselecttour_screen/widgets/tourcomponent2_item_widget.dart';
+import '../teacherselecttour_screen/widgets/tourcomponent1_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
@@ -29,17 +30,16 @@ class TeacherselecttourScreen extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topCenter,
                                 child: Container(
-                                    width: 259.h,
+                                    width: 280.h,
                                     margin: EdgeInsets.only(top: 22.v),
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen",
+                                              text: "Willkommen bei",
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
-                                          TextSpan(text: " "),
                                           TextSpan(
-                                              text: "bei KlagenfurtQuest",
+                                              text: "KlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -51,20 +51,37 @@ class TeacherselecttourScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               horizontal: 6.h, vertical: 11.v),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadiusStyle.customBorderTL25),
+                            color: Colors.white,
+                            borderRadius: BorderRadiusStyle.customBorderTL25,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
                           child:
                               Column(mainAxisSize: MainAxisSize.min, children: [
                             Text("Raum erstellen",
                                 style: CustomTextStyles.displaySmallSemiBold),
                             SizedBox(height: 5.v),
-                            _buildTourComponent(context),
+                            _buildParkTour(context),
+                            SizedBox(height: 6.v),
+                            _buildAltstadtTour(context),
                             SizedBox(height: 23.v),
                             CustomOutlinedButton(
-                                text: "Ausloggen",
-                                margin: EdgeInsets.only(left: 7.h, right: 9.h),
-                                onPressed: () {
-                                  onTapAusloggen(context);
-                                }),
+                              text: "Ausloggen",
+                              margin: EdgeInsets.only(left: 7.h, right: 9.h),
+                              onPressed: () {
+                                onTapAusloggen(context);
+                              },
+                              decoration: BoxDecoration(
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
                             SizedBox(height: 16.v),
                             Text("Hilfe", style: theme.textTheme.titleLarge),
                             SizedBox(height: 14.v)
@@ -73,7 +90,7 @@ class TeacherselecttourScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildTourComponent(BuildContext context) {
+  Widget _buildParkTour(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(right: 1.h),
         child: ListView.separated(
@@ -82,11 +99,26 @@ class TeacherselecttourScreen extends StatelessWidget {
             separatorBuilder: (context, index) {
               return SizedBox(height: 13.v);
             },
-            itemCount: 2,
+            itemCount: 1,
             itemBuilder: (context, index) {
               return Tourcomponent2ItemWidget(onTapCreateButtonText: () {
                 onTapCreateButtonText(context);
               });
+            }));
+  }
+
+  Widget _buildAltstadtTour(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.only(right: 1.h),
+        child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 13.v);
+            },
+            itemCount: 1,
+            itemBuilder: (context, index) {
+              return Tourcomponent1ItemWidget(); //Button nicht verfügbar da Tour noch nicht verfügbar
             }));
   }
 

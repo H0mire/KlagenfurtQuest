@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class StudentelementlistItemWidget extends StatelessWidget {
@@ -8,6 +9,7 @@ class StudentelementlistItemWidget extends StatelessWidget {
           key: key,
         );
 
+  @override
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,16 +31,16 @@ class StudentelementlistItemWidget extends StatelessWidget {
             ),
           ),
           Spacer(),
-          CustomImageView(
-            imagePath: ImageConstant.imgBtnmessage,
-            height: 29.adaptSize,
-            width: 29.adaptSize,
-          ),
-          CustomImageView(
-            imagePath: ImageConstant.imgBtnlocate,
-            height: 29.adaptSize,
-            width: 29.adaptSize,
-            margin: EdgeInsets.only(left: 3.h),
+          InkWell(
+            onTap: () {
+              //onTapViewStudentLocation!.call(); Methode für die Studentlocation, Problem mit dem Import weil nicht CustomElevatedButton etc.
+            },
+            child: CustomImageView(
+              imagePath: ImageConstant.imgLocate,
+              height: 29.adaptSize,
+              width: 29.adaptSize,
+              margin: EdgeInsets.only(left: 3.h),
+            ),
           ),
         ],
       ),

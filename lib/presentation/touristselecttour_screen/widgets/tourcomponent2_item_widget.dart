@@ -3,8 +3,8 @@ import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_elevated_button.dart';
 
 // ignore: must_be_immutable
-class Tourcomponent1ItemWidget extends StatelessWidget {
-  Tourcomponent1ItemWidget({
+class Tourcomponent2ItemWidget extends StatelessWidget {
+  Tourcomponent2ItemWidget({
     Key? key,
     this.onTapChooseButtonText,
   }) : super(
@@ -25,7 +25,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomImageView(
-            imagePath: ImageConstant.imgImgpreview,
+            imagePath: ImageConstant.imgImgpreview131x131,
             height: 131.adaptSize,
             width: 131.adaptSize,
             margin: EdgeInsets.only(
@@ -42,7 +42,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: 6.h),
                     child: Text(
-                      "Park-Tour",
+                      "Altstadt-Tour",
                       style: theme.textTheme.headlineLarge,
                     ),
                   ),
@@ -50,7 +50,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                 SizedBox(
                   width: 172.h,
                   child: Text(
-                    "Entdecken Sie die grüne Vielfalt Klagenfurts auf \nunserer Parktour",
+                    "Erleben Sie den Charme verganener Zeiten auf \nunserer Altstadttour",
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.bodyMedium,

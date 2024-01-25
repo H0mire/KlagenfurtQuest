@@ -25,7 +25,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomImageView(
-            imagePath: ImageConstant.imgImgpreview,
+            imagePath: ImageConstant.imgImgpreview131x131,
             height: 131.adaptSize,
             width: 131.adaptSize,
             margin: EdgeInsets.only(
@@ -42,7 +42,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: 6.h),
                     child: Text(
-                      "Park-Tour",
+                      "Altstadt-Tour",
                       style: theme.textTheme.headlineLarge,
                     ),
                   ),
@@ -50,7 +50,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                 SizedBox(
                   width: 172.h,
                   child: Text(
-                    "Entdecken Sie die grüne Vielfalt Klagenfurts auf \nunserer Parktour",
+                    "Erleben Sie den Charme verganener Zeiten auf \nunserer Altstadttour",
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.bodyMedium,
@@ -59,7 +59,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                 SizedBox(height: 7.v),
                 CustomElevatedButton(
                   width: 188.h,
-                  text: "Wählen",
+                  text: "Raum erstellen",
                   onPressed: () {
                     onTapChooseButtonText!.call();
                   },

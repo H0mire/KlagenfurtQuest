@@ -30,6 +30,7 @@ import 'package:klagenfurtquest_final/presentation/spielansicht_station_quiz_one
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_quiz_two_screen/spielansicht_station_quiz_two_screen.dart';
 import 'package:klagenfurtquest_final/presentation/app_navigation_screen/app_navigation_screen.dart';
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_starten_dialog/spielansicht_station_starten_dialog.dart';
+import 'package:klagenfurtquest_final/presentation/spielansicht_station_starting_dialog/spielansicht_station_starting_dialog.dart';
 
 class AppRoutes {
   static const String mainmenuScreen = '/mainmenu_screen';
@@ -107,6 +108,9 @@ class AppRoutes {
   static const String spielansichtStationStarten =
       '/spielansicht_station_starten_dialog';
 
+  static const String spielansichtStationStarting =
+      '/spielansicht_station_starting_dialog';
+
   static Map<String, WidgetBuilder> routes = {
     mainmenuScreen: (context) => MainmenuScreen(),
     mainmenulanguageconfigScreen: (context) => MainmenulanguageconfigScreen(),
@@ -145,6 +149,8 @@ class AppRoutes {
     spielansichtStationQuizTwoScreen: (context) =>
         SpielansichtStationQuizTwoScreen(),
     appNavigationScreen: (context) => AppNavigationScreen(),
-    spielansichtStationStarten: (context) => SpielansichtStationStartenDialog()
+    spielansichtStationStarten: (context) => SpielansichtStationStartenDialog(),
+    spielansichtStationStarting: (context) =>
+        SpielansichtStationStartingDialog()
   };
 }
