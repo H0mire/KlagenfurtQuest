@@ -32,16 +32,16 @@ class SpielansichtQuizFailedScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 4.v),
+                SizedBox(height: 50.v),
                 Container(
                   margin: EdgeInsets.only(right: 1.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 11.h,
-                    vertical: 20.v,
-                  ),
+                  padding: EdgeInsets.fromLTRB(11.h, 2.v, 11.h, 20.v),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadiusStyle.roundedBorder10,
-                  ),
+                      color: Colors.white.withOpacity(0.8),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        topRight: Radius.circular(10.0),
+                      )),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

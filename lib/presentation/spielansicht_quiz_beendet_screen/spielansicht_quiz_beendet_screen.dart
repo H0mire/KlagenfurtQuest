@@ -29,37 +29,39 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 215.v),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 1.h),
-                    padding: EdgeInsets.fromLTRB(11.h, 2.v, 11.h, 0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadiusStyle.roundedBorder10,
+                SizedBox(height: 50.v), // Etwas nach unten verschoben
+                Container(
+                  margin: EdgeInsets.only(right: 1.h),
+                  padding: EdgeInsets.fromLTRB(
+                      11.h, 2.v, 11.h, 20.v), // Etwas nach unten verlängert
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.8), // 80% Deckkraft
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10.0),
+                      topRight: Radius.circular(10.0),
                     ),
-                    child: Column(
-                      children: [
-                        SizedBox(height: 2.v),
-                        Text(
-                          "Schiller Park",
-                          style: CustomTextStyles.displaySmallBold,
-                        ),
-                        SizedBox(height: 26.v),
-                        _buildResultComponent(context),
-                        SizedBox(height: 29.v),
-                        CustomOutlinedButton(
-                          height: 53.v,
-                          text: "Zur Map",
-                          margin: EdgeInsets.only(left: 7.h),
-                          onPressed: () {
-                            onTapSpielStarten(context);
-                          },
-                          buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
-                          buttonTextStyle: theme.textTheme.headlineMedium!,
-                        ),
-                        SizedBox(height: 5.v),
-                      ],
-                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Schiller Park",
+                        style: CustomTextStyles.displaySmallBold,
+                      ),
+                      SizedBox(height: 26.v),
+                      _buildResultComponent(context),
+                      SizedBox(height: 29.v),
+                      CustomOutlinedButton(
+                        height: 53.v,
+                        text: "Zur Map",
+                        margin: EdgeInsets.only(left: 7.h),
+                        onPressed: () {
+                          onTapSpielStarten(context);
+                        },
+                        buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
+                        buttonTextStyle: theme.textTheme.headlineMedium!,
+                      ),
+                      SizedBox(height: 5.v),
+                    ],
                   ),
                 ),
                 SizedBox(height: 4.v),

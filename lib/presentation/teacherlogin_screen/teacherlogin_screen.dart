@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_text_form_field.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 // ignore_for_file: must_be_immutable
 class TeacherloginScreen extends StatelessWidget {
@@ -116,10 +118,8 @@ class TeacherloginScreen extends StatelessWidget {
                   onTapAnmelden(context);
                 },
                 decoration: BoxDecoration(
-                  color: Colors
-                      .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
-                  borderRadius: BorderRadius.circular(
-                      20.0), // Optional: abgerundete Ecken
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
               ),
               SizedBox(height: 12.v),
@@ -129,7 +129,38 @@ class TeacherloginScreen extends StatelessWidget {
   }
 
   /// Navigates to the teacherloggedinmenuScreen when the action is triggered.
-  onTapAnmelden(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.teacherloggedinmenuScreen);
+  //onTapAnmelden(BuildContext context) {
+  //Navigator.pushNamed(context, AppRoutes.teacherloggedinmenuScreen);
+
+  Future<void> onTapAnmelden(BuildContext context) async {
+    final String url = 'http://192.168.0.10:8080/login';
+
+    final Map<String, String> requestData = {
+      'mail': recMailController.text,
+      'password': recPasswordController.text,
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(requestData),
+      );
+
+      if (response.statusCode == 200) {
+        // Erfolgreich eingeloggt
+        print('Erfolgreich eingeloggt');
+
+        Navigator.pushNamed(context, AppRoutes.teacherloggedinmenuScreen);
+      } else {
+        // Fehler beim Einloggen
+        print('Fehler beim Einloggen: ${response.body}');
+        // Hier können Sie die Aktionen nach einem erfolglosen Login durchführen
+      }
+    } catch (error) {
+      print('Fehler: $error');
+    }
   }
 }

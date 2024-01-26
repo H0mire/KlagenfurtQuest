@@ -171,9 +171,9 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/Moritz/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.2.0",
+      "rootUri": "file:///C:/Users/Moritz/AppData/Local/Pub/Cache/hosted/pub.dev/http-0.13.6",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "2.19"
     },
     {
       "name": "http_parser",
@@ -440,7 +440,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2024-01-25T11:17:42.209312Z",
+  "generated": "2024-01-26T13:22:55.669117Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }
