@@ -109,7 +109,7 @@ class TeacherloginScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(left: 18.h),
                 child: Text(
-                  "Schul E-Mail",
+                  "E-Mail",
                   style: theme.textTheme.titleLarge,
                 ),
               ),
@@ -154,7 +154,51 @@ class TeacherloginScreen extends StatelessWidget {
               text: "Anmelden",
               margin: EdgeInsets.only(left: 8.h),
               onPressed: () {
-                onTapAnmelden(context);
+                // Überprüfe, ob eines der Felder leer ist
+                if (recMailController.text.isEmpty ||
+                    recPasswordController.text.isEmpty) {
+                  // Zeige Popup-Fenster
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Center(
+                          child: Text(
+                            "Fehler",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Center(
+                              child: Text(
+                                "Bitte E-Mail und Password ausfüllen!",
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(height: 20),
+                            Center(
+                              child: CustomOutlinedButton(
+                                text: "OK",
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                decoration: BoxDecoration(
+                                  color: Colors.orange,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                } else {
+                  // Beide Felder sind ausgefüllt, führe die Anmeldung durch
+                  onTapAnmelden(context);
+                }
               },
               decoration: BoxDecoration(
                 color: Colors.orange,
@@ -190,12 +234,47 @@ class TeacherloginScreen extends StatelessWidget {
       if (response.statusCode == 200) {
         // Erfolgreich eingeloggt
         print('Erfolgreich eingeloggt');
-
         Navigator.pushNamed(context, AppRoutes.teacherloggedinmenuScreen);
       } else {
         // Fehler beim Einloggen
         print('Fehler beim Einloggen: ${response.body}');
-        // Hier können Sie die Aktionen nach einem erfolglosen Login durchführen
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Center(
+                child: Text(
+                  "Fehler",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Center(
+                    child: Text(
+                      "E-Mail oder Passwort sind nicht korrekt!",
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Center(
+                    child: CustomOutlinedButton(
+                      text: "OK",
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
       }
     } catch (error) {
       print('Fehler: $error');

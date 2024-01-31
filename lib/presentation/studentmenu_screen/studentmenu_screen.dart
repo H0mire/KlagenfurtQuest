@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_text_form_field.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 // ignore_for_file: must_be_immutable
 class StudentmenuScreen extends StatelessWidget {
   StudentmenuScreen({Key? key}) : super(key: key);
 
-  TextEditingController roomNumberController = TextEditingController();
+  TextEditingController recRoomNumberController = TextEditingController();
 
-  TextEditingController nameController = TextEditingController();
+  TextEditingController recNicknameController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -106,7 +108,7 @@ class StudentmenuScreen extends StatelessWidget {
               },
               child: Center(
                 child: CustomTextFormField(
-                  controller: roomNumberController,
+                  controller: recRoomNumberController,
                   hintText: "Raumnummer",
                   focusNode: roomNumberFocus,
                   autofocus: false,
@@ -123,7 +125,7 @@ class StudentmenuScreen extends StatelessWidget {
               },
               child: Center(
                 child: CustomTextFormField(
-                  controller: nameController,
+                  controller: recNicknameController,
                   hintText: "Spitzname",
                   textInputAction: TextInputAction.done,
                   focusNode: nameFocus,
@@ -137,9 +139,48 @@ class StudentmenuScreen extends StatelessWidget {
             text: "Beitreten",
             margin: EdgeInsets.only(left: 8.h),
             onPressed: () {
-              if (roomNumberController.text.isNotEmpty &&
-                  nameController.text.isNotEmpty) {
+              if (recRoomNumberController.text.isNotEmpty &&
+                  recNicknameController.text.isNotEmpty) {
                 onTapBeitreten(context);
+              } else {
+                // Zeigt das Popup-Fenster, wenn eines der Textfelder leer ist
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Center(
+                        child: Text(
+                          "Fehler",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Center(
+                            child: Text(
+                              "Bitte Raumnummer und Spitzname ausfüllen!",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Center(
+                            child: CustomOutlinedButton(
+                              text: "OK",
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              decoration: BoxDecoration(
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
               }
             },
             decoration: BoxDecoration(
@@ -167,7 +208,6 @@ class StudentmenuScreen extends StatelessWidget {
   /// Navigates to the roomviewstudentScreen when the action is triggered.
   Future<void> onTapBeitreten(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
-      // Wenn das Formular gültig ist, zeigen Sie das Popup an
       await showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -176,7 +216,10 @@ class StudentmenuScreen extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 20.0),
               child: AlertDialog(
                 title: Center(
-                  child: Text("Bestätigung"),
+                  child: Text(
+                    "Achtung",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -191,10 +234,10 @@ class StudentmenuScreen extends StatelessWidget {
                     CustomOutlinedButton(
                       text: "Bestätigen",
                       onPressed: () {
-                        Navigator.of(context).pop(); // Popup schließen
-                        // Navigieren Sie zum roomviewstudentScreen
+                        Navigator.of(context).pop();
                         Navigator.pushNamed(
                             context, AppRoutes.roomviewstudentScreen);
+                        //onTapRaumBetreten(context);
                       },
                       decoration: BoxDecoration(
                         color: Colors.orange,
@@ -214,5 +257,72 @@ class StudentmenuScreen extends StatelessWidget {
   /// Navigates to the mainmenuScreen when the action is triggered.
   onTapZurck(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
+  }
+
+  Future<void> onTapRaumBetreten(BuildContext context) async {
+    final String url = 'http://192.168.0.10:8080/rooms';
+
+    final Map<String, String> requestData = {
+      'roomnr': recRoomNumberController.text,
+      'nickname': recNicknameController.text,
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(requestData),
+      );
+
+      if (response.statusCode == 200) {
+        // Erfolgreich eingeloggt
+        print('Erfolgreich eingeloggt');
+        Navigator.pushNamed(context, AppRoutes.roomviewstudentScreen);
+      } else {
+        // Fehler beim Einloggen
+        print('Fehler beim Einloggen: ${response.body}');
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Center(
+                child: Text(
+                  "Fehler",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Center(
+                    child: Text(
+                      "Fehler beim Beitreten",
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Center(
+                    child: CustomOutlinedButton(
+                      text: "OK",
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      }
+    } catch (error) {
+      print('Fehler: $error');
+    }
   }
 }

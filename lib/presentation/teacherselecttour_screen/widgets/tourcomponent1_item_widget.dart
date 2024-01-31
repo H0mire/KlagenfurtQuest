@@ -60,6 +60,10 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                 CustomElevatedButton(
                   width: 188.h,
                   text: "Raum erstellen",
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
                   onPressed: () {
                     onTapChooseButtonText!.call();
                   },
