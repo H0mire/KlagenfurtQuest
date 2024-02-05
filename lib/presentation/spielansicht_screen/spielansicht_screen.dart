@@ -1,16 +1,21 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:url_launcher/url_launcher.dart';
+import 'package:geolocator/geolocator.dart';
+
 
 class SpielansichtScreen extends StatelessWidget {
   SpielansichtScreen({Key? key})
       : super(
           key: key,
         );
+
+void getLocation() async{
+  Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);}
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,25 @@ class SpielansichtScreen extends StatelessWidget {
             ),
           ],
         ),
+        MarkerLayer(
+          markers: [
+            Marker(
+                point: latLng.LatLng(46.625931, 14.302870),
+                width: 40,
+                height: 40,
+                child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.location_on,
+                        color: Colors.white,
+                      ),
+                    )))
+          ],
+        )
       ],
     );
   }
