@@ -146,6 +146,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_polyline_points",
+      "rootUri": "file:///C:/Users/Moritz/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_polyline_points-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///C:/Users/Moritz/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_svg-2.0.9",
       "packageUri": "lib/",
@@ -620,7 +626,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2024-02-02T12:22:05.225936Z",
+  "generated": "2024-02-05T15:20:06.879624Z",
   "generator": "pub",
   "generatorVersion": "3.2.6"
 }

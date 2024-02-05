@@ -1,143 +1,124 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:klagenfurtquest_final/routes/app_routes.dart';
 
+class SpielansichtScreen extends StatefulWidget {
+  SpielansichtScreen({Key? key}) : super(key: key);
 
-class SpielansichtScreen extends StatelessWidget {
-  SpielansichtScreen({Key? key})
-      : super(
-          key: key,
-        );
+  @override
+  _SpielansichtScreenState createState() => _SpielansichtScreenState();
+}
 
-void getLocation() async{
-  Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);}
+class _SpielansichtScreenState extends State<SpielansichtScreen> {
+  late Future<Position> currentPosition;
 
+  @override
+  void initState() {
+    super.initState();
+    currentPosition = getCurrentLocation();
+  }
+
+  Future<Position> getCurrentLocation() async {
+    final position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    return position;
+  }
+
+  void onTapWeiter() {
+    Navigator.pushNamed(context,
+        AppRoutes.spielansichtStationStarten); // Beispielname "weiterScreen"
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FlutterMap(
-      options: MapOptions(
-        initialCenter: latLng.LatLng(46.624826, 14.305265),
-        initialZoom: 16,
-      ),
-      children: [
-        TileLayer(
-          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'com.example.app',
-        ),
-        RichAttributionWidget(
-          attributions: [
-            TextSourceAttribution(
-              'OpenStreetMap contributors',
-              onTap: () =>
-                  launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
-            ),
-          ],
-        ),
-        MarkerLayer(
-          markers: [
-            Marker(
-                point: latLng.LatLng(46.625931, 14.302870),
-                width: 40,
-                height: 40,
-                child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.location_on,
-                        color: Colors.white,
-                      ),
-                    )))
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget _buildDirectionsSection(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        left: 68.h,
-        right: 27.h,
-        bottom: 16.v,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadiusStyle.customBorderTL25,
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadiusStyle.customBorderTL25,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: 4.v,
-                bottom: 14.v,
+    return FutureBuilder<Position>(
+      future: currentPosition,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else {
+          final currentPosition = snapshot.data!;
+          return FlutterMap(
+            options: MapOptions(
+              initialCenter: latLng.LatLng(
+                //currentPosition.latitude für die aktuelle Position des Users, jedoch Position des Emulators in USA
+                46.625078,
+                //currentPosition.longitude
+                14.301721,
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Gerade aus weiter!",
-                    style: CustomTextStyles.titleLargeSemiBold,
+              initialZoom: 17.5,
+            ),
+            children: [
+              TileLayer(
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                userAgentPackageName: 'com.example.app',
+              ),
+              RichAttributionWidget(
+                attributions: [
+                  TextSourceAttribution(
+                    'OpenStreetMap contributors',
+                    onTap: () => launchUrl(
+                        Uri.parse('https://openstreetmap.org/copyright')),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 6.v),
-                    child: Text(
-                      "500m",
-                      style: theme.textTheme.titleSmall,
+                ],
+              ),
+              MarkerLayer(
+                markers: [
+                  Marker(
+                    point: latLng.LatLng(46.625931, 14.302870),
+                    width: 40,
+                    height: 40,
+                    child: GestureDetector(
+                      onTap: onTapWeiter,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.location_on,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Marker(
+                    point: latLng.LatLng(
+                      //currentPosition.latitude für die aktuelle Position des Users, jedoch Position des Emulators in USA
+                      46.625078,
+                      //currentPosition.longitude
+                      14.301721,
+                    ),
+                    width: 40,
+                    height: 40,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.my_location,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            CustomImageView(
-              imagePath: ImageConstant.imgArrowRight,
-              height: 69.adaptSize,
-              width: 69.adaptSize,
-            ),
-            SizedBox(width: 16.h), // Platzhalter für den Abstand zum Button
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  onTapWeiter(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.orange,
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(16.0), // Ändere den Radius
-                  ),
-                  padding: EdgeInsets.all(16.0), // Ändere das Padding
-                  minimumSize: Size(0, 56), // Ändere die Mindestgröße
-                ),
-                child: Text(
-                  'Button',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          );
+        }
+      },
     );
-  }
-
-  /// Navigates to the spielansicht_station_starten when the action is triggered.
-  onTapWeiter(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.spielansichtStationStarten);
   }
 }
