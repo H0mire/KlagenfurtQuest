@@ -20,14 +20,14 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
   //late latLng.LatLng currentPosition;
   //für Position auf dem ersten Marker 46.625931, 14.302870
   //für Position auf fakeAusgangsPosition z.B.: 46.625078, 14.301721
-  latLng.LatLng fakeCurrentPosition = latLng.LatLng(46.625935, 14.302879);
+  latLng.LatLng fakeCurrentPosition = latLng.LatLng(46.625931, 14.302870);
 
   @override
   void initState() {
     super.initState();
     //currentPosition = latLng.LatLng(46.616172, 14.313488); //loading-dummy
     getCurrentLocation(); // Initial Position abrufen
-    timer = Timer.periodic(Duration(seconds: 4), (Timer t) {
+    timer = Timer.periodic(Duration(seconds: 2), (Timer t) {
       getCurrentLocation();
       checkDistance();
     });
@@ -40,7 +40,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     setState(() {
       //für Position auf dem ersten Marker 46.625931, 14.302870
       //für Position auf fakeAusgangsPosition z.B.: 46.625078, 14.301721
-      fakeCurrentPosition = latLng.LatLng(46.625935, 14.302879);
+      fakeCurrentPosition = latLng.LatLng(46.625931, 14.302870);
       //currentPosition = latLng.LatLng(position.latitude, position.longitude);
     });
   }
@@ -58,8 +58,12 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     if (distance < 20) {
       onTapWeiter();
       timer.cancel(); // Stop the timer once the condition is met
-    } else {
-      print('checked');
+    }
+
+    if (isSchillerparkStationCompleted) {
+      Future.delayed(Duration(seconds: 1), () {
+        onTapTourFinished(context);
+      });
     }
   }
 
@@ -71,11 +75,6 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (isSchillerparkStationCompleted) {
-      Future.delayed(Duration(seconds: 1), () {
-        onTapTourFinished(context);
-      });
-    }
     return FlutterMap(
       options: MapOptions(
         initialCenter: latLng.LatLng(

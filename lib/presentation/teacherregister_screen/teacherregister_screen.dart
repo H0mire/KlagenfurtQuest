@@ -4,6 +4,7 @@ import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_text_form_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore_for_file: must_be_immutable
 class TeacherregisterScreen extends StatelessWidget {
@@ -245,13 +246,25 @@ class TeacherregisterScreen extends StatelessWidget {
             ])));
   }
 
+  Future<void> saveJwtToken(String jwtToken) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('jwtToken', jwtToken);
+  }
+
+  Future<String?> getJwtToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('jwtToken');
+  }
+
   Future<void> onTapRegistrieren(BuildContext context) async {
     final String url = 'http://192.168.0.10:8080/signup';
 
     final Map<String, String> requestData = {
-      'benutzer': recBenutzerController.text,
+      'firstname': "joe",
+      "lastname": "mama",
+      'username': recBenutzerController.text,
       'mail': recMailController.text,
-      'password': recPasswordController.text,
+      'hashedPassword': recPasswordController.text,
     };
 
     try {
@@ -263,9 +276,14 @@ class TeacherregisterScreen extends StatelessWidget {
         body: jsonEncode(requestData),
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         //Erfolgreich registriert
         print('Erfolgreich registriert');
+
+        //save jwt token to local memory
+        final String jwt = response.body;
+        await saveJwtToken(jwt);
+        
         Navigator.pushNamed(context, AppRoutes.teacherloggedinmenuScreen);
       } else {
         //Fehler beim Registrieren
