@@ -112,6 +112,6 @@ class SpielansichtQuizFailedScreen extends StatelessWidget {
 
   /// Navigates to the spielansichtStationInfosScreen when the action is triggered.
   onTapStarten(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosOneScreen);
+    Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosScreen);
   }
 }

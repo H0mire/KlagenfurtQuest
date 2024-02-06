@@ -5,6 +5,7 @@ import 'package:latlong2/latlong.dart' as latLng;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:klagenfurtquest_final/routes/app_routes.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:klagenfurtquest_final/presentation/schillerpark_station_completion.dart';
 
 class SpielansichtScreen extends StatefulWidget {
   SpielansichtScreen({Key? key}) : super(key: key);
@@ -19,14 +20,14 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
   //late latLng.LatLng currentPosition;
   //für Position auf dem ersten Marker 46.625931, 14.302870
   //für Position auf fakeAusgangsPosition z.B.: 46.625078, 14.301721
-  latLng.LatLng fakeCurrentPosition = latLng.LatLng(46.625931, 14.302870);
+  latLng.LatLng fakeCurrentPosition = latLng.LatLng(46.625935, 14.302879);
 
   @override
   void initState() {
     super.initState();
     //currentPosition = latLng.LatLng(46.616172, 14.313488); //loading-dummy
     getCurrentLocation(); // Initial Position abrufen
-    timer = Timer.periodic(Duration(seconds: 5), (Timer t) {
+    timer = Timer.periodic(Duration(seconds: 4), (Timer t) {
       getCurrentLocation();
       checkDistance();
     });
@@ -39,7 +40,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     setState(() {
       //für Position auf dem ersten Marker 46.625931, 14.302870
       //für Position auf fakeAusgangsPosition z.B.: 46.625078, 14.301721
-      fakeCurrentPosition = latLng.LatLng(46.625931, 14.302870);
+      fakeCurrentPosition = latLng.LatLng(46.625935, 14.302879);
       //currentPosition = latLng.LatLng(position.latitude, position.longitude);
     });
   }
@@ -63,11 +64,18 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
   }
 
   void onTapWeiter() {
-    showStartStationDialog(context);
+    if (isSchillerparkStationCompleted == false) {
+      showStartStationDialog(context);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (isSchillerparkStationCompleted) {
+      Future.delayed(Duration(seconds: 1), () {
+        onTapTourFinished(context);
+      });
+    }
     return FlutterMap(
       options: MapOptions(
         initialCenter: latLng.LatLng(
@@ -93,26 +101,28 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
         ),
         MarkerLayer(
           markers: [
-            Marker(
-              point: firstMarkerPosition,
-              width: 40,
-              height: 40,
-              child: GestureDetector(
-                onTap: onTapWeiter,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.location_on,
-                      color: Colors.white,
+            //sobald Schillerpark-Station abgeschlossen ist, wird der Marker auf der Map entfernt
+            if (!isSchillerparkStationCompleted)
+              Marker(
+                point: firstMarkerPosition,
+                width: 40,
+                height: 40,
+                child: GestureDetector(
+                  onTap: onTapWeiter,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.location_on,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
             Marker(
               //currentPosition,
               point: fakeCurrentPosition,
@@ -193,9 +203,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                          height:
-                              15.0), // Vergrößert den Abstand zwischen dem Text und dem Button
+                      SizedBox(height: 15.0),
                     ],
                   ),
                 ),
@@ -209,5 +217,10 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
 
   onTapInfosStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosScreen);
+  }
+
+  onTapTourFinished(BuildContext context) {
+    Navigator.pushNamed(
+        context, AppRoutes.spielansichtQuizGeschafftThreeScreen);
   }
 }
