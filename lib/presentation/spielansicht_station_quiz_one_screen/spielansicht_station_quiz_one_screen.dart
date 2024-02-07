@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/presentation/schillerpark_station_completion.dart';
 
@@ -90,7 +91,7 @@ class _SpielansichtStationQuizOneScreenState
                                     checkAnswersAndNavigate(context);
                                   },
                                   child: Text(
-                                    "Weiter",
+                                    LanguageService.continueText(),
                                     style: CustomTextStyles
                                         .headlineLargeOnPrimaryContainer,
                                   ),
@@ -129,7 +130,7 @@ class _SpielansichtStationQuizOneScreenState
               width: 253.h,
               margin: EdgeInsets.only(left: 6.h, right: 18.h),
               child: Text(
-                "Wann wurde der Schillerpark eröffnet?",
+                LanguageService.firstQuestionText(),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.headlineSmall,
@@ -200,7 +201,7 @@ class _SpielansichtStationQuizOneScreenState
             width: 253.h,
             margin: EdgeInsets.only(left: 6.h, right: 18.h),
             child: Text(
-              "Neben dem Marmordenkmal ziert welches weitere Andenken den Park?",
+              LanguageService.secondQuestionText(),
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
               style: theme.textTheme.headlineSmall,
@@ -209,7 +210,7 @@ class _SpielansichtStationQuizOneScreenState
           SizedBox(height: 17.v),
           // Radio-Buttons für Antwortmöglichkeiten
           _buildRadioOption(
-            "A: Schillereiche",
+            LanguageService.secondQuestionFirstAnswerText(),
             selectedAnswerQuestion2,
             "A",
             (value) {
@@ -219,7 +220,7 @@ class _SpielansichtStationQuizOneScreenState
             },
           ),
           _buildRadioOption(
-            "B: Schillerstatue",
+            LanguageService.secondQuestionSecondAnswerText(),
             selectedAnswerQuestion2,
             "B",
             (value) {
@@ -229,7 +230,7 @@ class _SpielansichtStationQuizOneScreenState
             },
           ),
           _buildRadioOption(
-            "C: Schillerbrunnen",
+            LanguageService.secondQuestionThirdAnswerText(),
             selectedAnswerQuestion2,
             "C",
             (value) {
@@ -239,7 +240,7 @@ class _SpielansichtStationQuizOneScreenState
             },
           ),
           _buildRadioOption(
-            "D: Schillerbank",
+            LanguageService.secondQuestionFourthAnswerText(),
             selectedAnswerQuestion2,
             "D",
             (value) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class RaumansichtSchuelerScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 14.h, vertical: 26.v),
                 child: Column(children: [
                   SizedBox(height: 27.v),
-                  Text("Ergebnisliste",
+                  Text(LanguageService.resultListText(),
                       textAlign: TextAlign.center,
                       style: CustomTextStyles.displaySmallBold),
                   SizedBox(height: 43.v),
@@ -44,7 +45,7 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
                       ])),
                   SizedBox(height: 31.v),
                   CustomOutlinedButton(
-                    text: "Zum Menü",
+                    text: LanguageService.backToMenuText(),
                     buttonTextStyle: theme.textTheme.displaySmall!,
                     onPressed: () {
                       onTapZumMen(context);
@@ -57,7 +58,8 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 11.v),
-                  Text("Hilfe", style: theme.textTheme.titleLarge)
+                  Text(LanguageService.helpText(),
+                      style: theme.textTheme.titleLarge)
                 ]))));
   }
 
@@ -96,7 +98,8 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 3.h, vertical: 11.v),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 223, 221, 221), // Hintergrundfarbe auf hellgrau ändern
+        color: Color.fromARGB(
+            255, 223, 221, 221), // Hintergrundfarbe auf hellgrau ändern
         borderRadius: BorderRadiusStyle.roundedBorder10,
       ),
       child: Row(

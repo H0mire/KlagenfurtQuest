@@ -1,3 +1,5 @@
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
+
 import '../touristselecttour_screen/widgets/tourcomponent1_item_widget.dart';
 import '../touristselecttour_screen/widgets/tourcomponent2_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -35,11 +37,11 @@ class TouristselecttourScreen extends StatelessWidget {
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen bei",
+                                              text: LanguageService.welcomeMessage(),
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
                                           TextSpan(
-                                              text: "KlagenfurtQuest",
+                                              text: "\nKlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -64,7 +66,7 @@ class TouristselecttourScreen extends StatelessWidget {
                           ),
                           child:
                               Column(mainAxisSize: MainAxisSize.min, children: [
-                            Text("Tour wählen",
+                            Text(LanguageService.selectTourText(),
                                 style: CustomTextStyles.displaySmallSemiBold),
                             SizedBox(height: 6.v),
                             _buildParkTour(context),
@@ -72,7 +74,7 @@ class TouristselecttourScreen extends StatelessWidget {
                             _buildAltstadtTour(context),
                             SizedBox(height: 23.v),
                             CustomOutlinedButton(
-                              text: "Zurück zum Menü",
+                              text: LanguageService.backToMenuText(),
                               margin: EdgeInsets.only(left: 7.h, right: 9.h),
                               onPressed: () {
                                 onTapAusloggen(context);
@@ -83,7 +85,7 @@ class TouristselecttourScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 15.v),
-                            Text("Hilfe", style: theme.textTheme.titleLarge),
+                            Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
                             SizedBox(height: 15.v)
                           ])))
                 ]))));

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class SpielansichtQuizGeschafftThreeScreen extends StatelessWidget {
@@ -71,8 +72,7 @@ class SpielansichtQuizGeschafftThreeScreen extends StatelessWidget {
                         child: Container(
                             width: 233.h,
                             margin: EdgeInsets.only(top: 17.v),
-                            child: Text(
-                                "Die Tour wurde beendet, herzlichen Glückwunsch!",
+                            child: Text(LanguageService.tourCompletedText(),
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.center,
@@ -81,7 +81,7 @@ class SpielansichtQuizGeschafftThreeScreen extends StatelessWidget {
           SizedBox(height: 30.v),
           CustomOutlinedButton(
               height: 53.v,
-              text: "Zu den Ergebnissen",
+              text: LanguageService.toResultsText(),
               margin: EdgeInsets.only(left: 7.h),
               buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
               buttonTextStyle: theme.textTheme.headlineMedium!,

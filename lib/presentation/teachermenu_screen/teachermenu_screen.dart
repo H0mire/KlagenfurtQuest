@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class TeachermenuScreen extends StatelessWidget {
@@ -34,11 +35,11 @@ class TeachermenuScreen extends StatelessWidget {
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen bei",
+                                              text: LanguageService.welcomeMessage(),
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
                                           TextSpan(
-                                              text: "KlagenfurtQuest",
+                                              text: "\nKlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -67,10 +68,10 @@ class TeachermenuScreen extends StatelessWidget {
                 ]),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               SizedBox(height: 16.v),
-              Text("Lehrer", style: CustomTextStyles.displaySmallBold),
+              Text(LanguageService.teacherText(), style: CustomTextStyles.displaySmallBold),
               SizedBox(height: 29.v),
               CustomOutlinedButton(
-                text: "Anmelden",
+                text: LanguageService.loginText(),
                 margin: EdgeInsets.only(left: 8.h),
                 onPressed: () {
                   onTapAnmelden(context);
@@ -82,7 +83,7 @@ class TeachermenuScreen extends StatelessWidget {
               ),
               SizedBox(height: 17.v),
               CustomOutlinedButton(
-                  text: "Registrieren",
+                  text: LanguageService.registerText(),
                   margin: EdgeInsets.only(left: 8.h),
                   buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
                   buttonTextStyle: theme.textTheme.displaySmall!,
@@ -91,7 +92,7 @@ class TeachermenuScreen extends StatelessWidget {
                   }),
               SizedBox(height: 16.v),
               CustomOutlinedButton(
-                  text: "Zurück",
+                  text: LanguageService.backToMenuText(),
                   margin: EdgeInsets.only(left: 8.h),
                   buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
                   buttonTextStyle: theme.textTheme.displaySmall!,
@@ -99,7 +100,7 @@ class TeachermenuScreen extends StatelessWidget {
                     onTapZurck(context);
                   }),
               SizedBox(height: 31.v),
-              Text("Hilfe", style: theme.textTheme.titleLarge)
+              Text(LanguageService.helpText(), style: theme.textTheme.titleLarge)
             ])));
   }
 

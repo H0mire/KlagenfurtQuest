@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:klagenfurtquest_final/routes/app_routes.dart';
@@ -27,7 +28,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     super.initState();
     //currentPosition = latLng.LatLng(46.616172, 14.313488); //loading-dummy
     getCurrentLocation(); // Initial Position abrufen
-    timer = Timer.periodic(Duration(seconds: 2), (Timer t) {
+    timer = Timer.periodic(Duration(seconds: 3), (Timer t) {
       getCurrentLocation();
       checkDistance();
     });
@@ -61,7 +62,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     }
 
     if (isSchillerparkStationCompleted) {
-      Future.delayed(Duration(seconds: 1), () {
+      Future.delayed(Duration(seconds: 2), () {
         onTapTourFinished(context);
       });
     }
@@ -171,7 +172,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
                   child: Column(
                     children: [
                       Text(
-                        "Willkommen bei der Station!",
+                        LanguageService.welcomeToStationText(),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
@@ -194,7 +195,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
                           onTapInfosStarten(context);
                         },
                         child: Text(
-                          "Starten",
+                          LanguageService.startGameText(),
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,

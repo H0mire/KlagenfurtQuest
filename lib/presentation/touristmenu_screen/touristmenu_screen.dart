@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class TouristmenuScreen extends StatelessWidget {
@@ -33,11 +34,11 @@ class TouristmenuScreen extends StatelessWidget {
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen bei",
+                                              text: LanguageService.welcomeMessage(),
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
                                           TextSpan(
-                                              text: "KlagenfurtQuest",
+                                              text: "\nKlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -72,7 +73,7 @@ class TouristmenuScreen extends StatelessWidget {
                   Text("Tourist", style: CustomTextStyles.displaySmallBold),
                   SizedBox(height: 28.v),
                   CustomOutlinedButton(
-                    text: "Starten",
+                    text: LanguageService.startText(),
                     margin: EdgeInsets.only(left: 8.h),
                     onPressed: () {
                       onTapStarten(context);
@@ -84,7 +85,7 @@ class TouristmenuScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 15.v),
                   CustomOutlinedButton(
-                      text: "Zurück",
+                      text: LanguageService.backToMenuText(),
                       margin: EdgeInsets.only(left: 8.h),
                       buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
                       buttonTextStyle: theme.textTheme.displaySmall!,
@@ -92,7 +93,7 @@ class TouristmenuScreen extends StatelessWidget {
                         onTapZurck(context);
                       }),
                   SizedBox(height: 31.v),
-                  Text("Hilfe", style: theme.textTheme.titleLarge),
+                  Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
                   SizedBox(height: 2.v)
                 ])));
   }

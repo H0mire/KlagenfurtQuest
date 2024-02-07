@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class SpielansichtStationInfosOneScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class SpielansichtStationInfosOneScreen extends StatelessWidget {
                   CustomImageView(
                       imagePath: ImageConstant.imgImgquizbg,
                       height: 800.v,
-                      width: 355.h,
+                      width: 360.h,
                       alignment: Alignment.center),
                   Align(
                       alignment: Alignment(0, 0.2),
@@ -53,7 +54,8 @@ class SpielansichtStationInfosOneScreen extends StatelessWidget {
                                         margin: EdgeInsets.only(
                                             left: 5.h, right: 7.h),
                                         child: Text(
-                                            "Der Schillerpark, eröffnet im Jahr 1905, entstand anlässlich des hundertsten Todestags des Dichters Friedrich Schillers. Ursprünglich als Stadtpark geplant, wurde er auf einem Teil des zugeschütteten Klagenfurters Stadtgrabens angelegt.\n\nBereits im Eröffnungsjahr wurde die “Schillereiche” gepflanzt und seit 1928 ziert ein Marmordenkmal den Park.",
+                                            LanguageService
+                                                .schillerParkInfoText(),
                                             maxLines: 20,
                                             overflow: TextOverflow.visible,
                                             style:
@@ -61,7 +63,7 @@ class SpielansichtStationInfosOneScreen extends StatelessWidget {
                                     SizedBox(height: 85.v),
                                     CustomOutlinedButton(
                                         height: 53.v,
-                                        text: "Zum Quiz",
+                                        text: LanguageService.startQuizText(),
                                         buttonStyle: CustomButtonStyles
                                             .outlinePrimaryTL201,
                                         buttonTextStyle:

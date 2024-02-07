@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class SpielansichtQuizFinishedScreen extends StatelessWidget {
@@ -55,7 +56,7 @@ class SpielansichtQuizFinishedScreen extends StatelessWidget {
                       SizedBox(height: 29.v),
                       CustomOutlinedButton(
                         height: 53.v,
-                        text: "Zur Map",
+                        text: LanguageService.goToMapText(),
                         margin: EdgeInsets.only(left: 7.h),
                         onPressed: () {
                           onTapSpielStarten(context);
@@ -92,7 +93,7 @@ class SpielansichtQuizFinishedScreen extends StatelessWidget {
           SizedBox(
             width: 261.h,
             child: Text(
-              "Es wurden alle Fragen richtig beantwortet",
+              LanguageService.answeredCorrectlyText(),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,

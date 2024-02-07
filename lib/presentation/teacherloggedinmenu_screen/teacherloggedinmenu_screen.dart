@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class TeacherloggedinmenuScreen extends StatelessWidget {
@@ -41,11 +42,11 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "Willkommen bei",
+                                  text: LanguageService.welcomeMessage(),
                                   style: CustomTextStyles.displaySmallffffa500,
                                 ),
                                 TextSpan(
-                                  text: "KlagenfurtQuest",
+                                  text: "\nKlagenfurtQuest",
                                   style: CustomTextStyles.displaySmallffffffff,
                                 ),
                               ],
@@ -92,12 +93,12 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
           children: [
             SizedBox(height: 12.v),
             Text(
-              "Willkommen",
+              LanguageService.onlyWelcomeText(),
               style: CustomTextStyles.displaySmallBold,
             ),
             SizedBox(height: 33.v),
             CustomOutlinedButton(
-                text: "Raum erstellen",
+                text: LanguageService.createRoomText(),
                 margin: EdgeInsets.only(left: 8.h),
                 decoration: BoxDecoration(
                   color: Colors.orange,
@@ -108,16 +109,17 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
                 }),
             SizedBox(height: 17.v),
             CustomOutlinedButton(
-                text: "Archiv",
+                text: LanguageService.archiveText(),
                 margin: EdgeInsets.only(left: 8.h),
                 buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
                 buttonTextStyle: theme.textTheme.displaySmall!,
                 onPressed: () {
-                  onTapTeacherArchiv(context);
+                  //Archiv deaktiviert
+                  //onTapTeacherArchiv(context);
                 }),
             SizedBox(height: 16.v),
             CustomOutlinedButton(
-                text: "Ausloggen",
+                text: LanguageService.loggoutText(),
                 margin: EdgeInsets.only(left: 8.h),
                 buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
                 buttonTextStyle: theme.textTheme.displaySmall!,
@@ -126,7 +128,7 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
                 }),
             SizedBox(height: 32.v),
             Text(
-              "Hilfe",
+              LanguageService.helpText(),
               style: theme.textTheme.titleLarge,
             ),
           ],

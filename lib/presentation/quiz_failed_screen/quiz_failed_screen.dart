@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class QuizFailedScreen extends StatelessWidget {
@@ -55,7 +56,7 @@ class QuizFailedScreen extends StatelessWidget {
                       SizedBox(height: 20.v),
                       CustomOutlinedButton(
                         height: 53.v,
-                        text: "Zurück zum Quiz",
+                        text: LanguageService.backToQuizText(),
                         margin: EdgeInsets.only(left: 7.h),
                         onPressed: () {
                           onTapStarten(context);
@@ -91,7 +92,7 @@ class QuizFailedScreen extends StatelessWidget {
           SizedBox(
             width: 236.h,
             child: Text(
-              "Es wurden nicht alle Fragen richtig beantwortet",
+              LanguageService.notAnsweredCorrectlyText(),
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
@@ -112,6 +113,6 @@ class QuizFailedScreen extends StatelessWidget {
 
   /// Navigates to the spielansichtStationInfosScreen when the action is triggered.
   onTapStarten(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosScreen);
+    Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosOneScreen);
   }
 }

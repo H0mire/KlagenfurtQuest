@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_text_form_field.dart';
 import 'package:http/http.dart' as http;
@@ -48,11 +49,11 @@ class TeacherloginScreen extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "Willkommen bei",
+                                  text: LanguageService.welcomeMessage(),
                                   style: CustomTextStyles.displaySmallffffa500,
                                 ),
                                 TextSpan(
-                                  text: "KlagenfurtQuest",
+                                  text: "\nKlagenfurtQuest",
                                   style: CustomTextStyles.displaySmallffffffff,
                                 ),
                               ],
@@ -96,7 +97,7 @@ class TeacherloginScreen extends StatelessWidget {
             SizedBox(
               width: 215.h,
               child: Text(
-                "Willkommen zurück!",
+                LanguageService.welcomeBackText(),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
@@ -131,7 +132,7 @@ class TeacherloginScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(left: 19.h),
                 child: Text(
-                  "Passwort",
+                  LanguageService.passwordText(),
                   style: theme.textTheme.titleLarge,
                 ),
               ),
@@ -151,7 +152,7 @@ class TeacherloginScreen extends StatelessWidget {
             ),
             SizedBox(height: 26.v),
             CustomOutlinedButton(
-              text: "Anmelden",
+              text: LanguageService.loginText(),
               margin: EdgeInsets.only(left: 8.h),
               onPressed: () {
                 // Überprüfe, ob eines der Felder leer ist
@@ -164,7 +165,7 @@ class TeacherloginScreen extends StatelessWidget {
                       return AlertDialog(
                         title: Center(
                           child: Text(
-                            "Fehler",
+                            LanguageService.errorText(),
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -173,7 +174,7 @@ class TeacherloginScreen extends StatelessWidget {
                           children: [
                             Center(
                               child: Text(
-                                "Bitte E-Mail und Password ausfüllen!",
+                                LanguageService.emailPasswordText(),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -206,7 +207,7 @@ class TeacherloginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12.v),
-            Text("Hilfe", style: theme.textTheme.titleLarge),
+            Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
             SizedBox(height: 9.v),
           ],
         ),

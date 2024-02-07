@@ -1,3 +1,5 @@
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
+
 import '../teacherarchive_screen/widgets/tourcomponent_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
@@ -34,11 +36,11 @@ class TeacherarchiveScreen extends StatelessWidget {
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen bei",
+                                              text: LanguageService.welcomeBackText(),
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
                                           TextSpan(
-                                              text: "KlagenfurtQuest",
+                                              text: "\nKlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -63,13 +65,13 @@ class TeacherarchiveScreen extends StatelessWidget {
                           ),
                           child:
                               Column(mainAxisSize: MainAxisSize.min, children: [
-                            Text("Archiv",
+                            Text(LanguageService.archiveText(),
                                 style: CustomTextStyles.displaySmallSemiBold),
                             SizedBox(height: 6.v),
                             _buildTourComponent(context),
                             SizedBox(height: 23.v),
                             CustomOutlinedButton(
-                                text: "Ausloggen",
+                                text: LanguageService.loggoutText(),
                                 margin: EdgeInsets.only(left: 7.h, right: 9.h),
                                 decoration: BoxDecoration(
                                   color: Colors.orange,
@@ -79,7 +81,7 @@ class TeacherarchiveScreen extends StatelessWidget {
                                   onTapAusloggen(context);
                                 }),
                             SizedBox(height: 16.v),
-                            Text("Hilfe", style: theme.textTheme.titleLarge),
+                            Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
                             SizedBox(height: 15.v)
                           ])))
                 ]))));

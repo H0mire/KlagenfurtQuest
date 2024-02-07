@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_text_form_field.dart';
 
@@ -19,7 +20,7 @@ class RoomviewstudentScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 26.v),
                 child: Column(children: [
                   SizedBox(height: 23.v),
-                  Text("Raum 1234",
+                  Text(LanguageService.roomText() + ': 1234',
                       textAlign: TextAlign.center,
                       style: CustomTextStyles.displaySmallBold),
                   SizedBox(height: 13.v),
@@ -53,7 +54,7 @@ class RoomviewstudentScreen extends StatelessWidget {
                       ])),
                   SizedBox(height: 22.v),
                   CustomOutlinedButton(
-                    text: "Spiel starten",
+                    text: LanguageService.startGameText(),
                     margin: EdgeInsets.only(left: 8.h),
                     onPressed: () {
                       onTapSpielStarten(context);
@@ -66,7 +67,8 @@ class RoomviewstudentScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.v),
-                  Text("Hilfe", style: theme.textTheme.titleLarge)
+                  Text(LanguageService.helpText(),
+                      style: theme.textTheme.titleLarge)
                 ]))));
   }
 

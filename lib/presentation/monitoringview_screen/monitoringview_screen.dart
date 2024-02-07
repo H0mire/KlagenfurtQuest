@@ -1,3 +1,5 @@
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
+
 import '../monitoringview_screen/widgets/studentelementlist_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
@@ -15,7 +17,7 @@ class MonitoringviewScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 26.v),
                 child: Column(children: [
                   SizedBox(height: 23.v),
-                  Text("Raum 1234",
+                  Text(LanguageService.roomText() + ": 1234",
                       textAlign: TextAlign.center,
                       style: CustomTextStyles.displaySmallBold),
                   SizedBox(height: 13.v),
@@ -29,14 +31,15 @@ class MonitoringviewScreen extends StatelessWidget {
                   _buildStudentElementList(context),
                   SizedBox(height: 22.v),
                   CustomOutlinedButton(
-                      text: "Beenden",
+                      text: LanguageService.quitText(),
                       margin: EdgeInsets.only(left: 8.h),
                       buttonStyle: CustomButtonStyles.outlinePrimaryTL201,
                       onPressed: () {
                         onTapBeenden(context);
                       }),
                   SizedBox(height: 11.v),
-                  Text("Hilfe", style: theme.textTheme.titleLarge)
+                  Text(LanguageService.helpText(),
+                      style: theme.textTheme.titleLarge)
                 ]))));
   }
 
@@ -63,6 +66,7 @@ class MonitoringviewScreen extends StatelessWidget {
   onTapBeenden(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);
   }
+
   //Methode für den Icon-Button für die StudentLocation
   onTapViewStudentLocation(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);

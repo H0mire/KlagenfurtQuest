@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_elevated_button.dart';
 
 // ignore: must_be_immutable
@@ -50,7 +51,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                 SizedBox(
                   width: 172.h,
                   child: Text(
-                    "Entdecken Sie die grüne Vielfalt Klagenfurts auf \nunserer Parktour",
+                    LanguageService.parkTourText(),
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.bodyMedium,
@@ -59,7 +60,7 @@ class Tourcomponent1ItemWidget extends StatelessWidget {
                 SizedBox(height: 7.v),
                 CustomElevatedButton(
                   width: 188.h,
-                  text: "Wählen",
+                  text: LanguageService.selectTourText(),
                   onPressed: () {
                     onTapChooseButtonText!.call();
                   },

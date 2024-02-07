@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_text_form_field.dart';
 import 'package:http/http.dart' as http;
@@ -62,13 +63,13 @@ class StudentmenuScreen extends StatelessWidget {
                                                             text: TextSpan(
                                                                 children: [
                                                                   TextSpan(
-                                                                      text:
-                                                                          "Willkommen bei",
+                                                                      text: LanguageService
+                                                                          .welcomeMessage(),
                                                                       style: CustomTextStyles
                                                                           .displaySmallffffa500),
                                                                   TextSpan(
                                                                       text:
-                                                                          "KlagenfurtQuest",
+                                                                          "\nKlagenfurtQuest",
                                                                       style: CustomTextStyles
                                                                           .displaySmallffffffff)
                                                                 ]),
@@ -98,7 +99,8 @@ class StudentmenuScreen extends StatelessWidget {
           ],
         ),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Text("Schüler", style: CustomTextStyles.displaySmallBold),
+          Text(LanguageService.studentText(),
+              style: CustomTextStyles.displaySmallBold),
           SizedBox(height: 12.v),
           Padding(
             padding: EdgeInsets.only(left: 8.h),
@@ -109,7 +111,7 @@ class StudentmenuScreen extends StatelessWidget {
               child: Center(
                 child: CustomTextFormField(
                   controller: recRoomNumberController,
-                  hintText: "Raumnummer",
+                  hintText: LanguageService.roomnumberText(),
                   focusNode: roomNumberFocus,
                   autofocus: false,
                 ),
@@ -126,7 +128,7 @@ class StudentmenuScreen extends StatelessWidget {
               child: Center(
                 child: CustomTextFormField(
                   controller: recNicknameController,
-                  hintText: "Spitzname",
+                  hintText: "Nickname",
                   textInputAction: TextInputAction.done,
                   focusNode: nameFocus,
                   autofocus: false,
@@ -136,7 +138,7 @@ class StudentmenuScreen extends StatelessWidget {
           ),
           SizedBox(height: 13.v),
           CustomOutlinedButton(
-            text: "Beitreten",
+            text: LanguageService.joinText(),
             margin: EdgeInsets.only(left: 8.h),
             onPressed: () {
               if (recRoomNumberController.text.isNotEmpty &&
@@ -150,7 +152,7 @@ class StudentmenuScreen extends StatelessWidget {
                     return AlertDialog(
                       title: Center(
                         child: Text(
-                          "Fehler",
+                          LanguageService.cautionText(),
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -159,7 +161,7 @@ class StudentmenuScreen extends StatelessWidget {
                         children: [
                           Center(
                             child: Text(
-                              "Bitte Raumnummer und Spitzname ausfüllen!",
+                              LanguageService.roomnAndnicknameText(),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -190,7 +192,7 @@ class StudentmenuScreen extends StatelessWidget {
           ),
           SizedBox(height: 15.v),
           CustomOutlinedButton(
-            text: "Zurück",
+            text: LanguageService.returnText(),
             margin: EdgeInsets.only(left: 8.h),
             buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
             buttonTextStyle: theme.textTheme.displaySmall!,
@@ -199,7 +201,7 @@ class StudentmenuScreen extends StatelessWidget {
             },
           ),
           SizedBox(height: 31.v),
-          Text("Hilfe", style: theme.textTheme.titleLarge),
+          Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
         ]),
       ),
     );
@@ -217,7 +219,7 @@ class StudentmenuScreen extends StatelessWidget {
               child: AlertDialog(
                 title: Center(
                   child: Text(
-                    "Achtung",
+                    LanguageService.cautionText(),
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -226,13 +228,13 @@ class StudentmenuScreen extends StatelessWidget {
                   children: [
                     Center(
                       child: Text(
-                        "In weiterer Folge werden ihre Standortdaten verwendet.",
+                        LanguageService.locationDataInUseText(),
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(height: 20),
                     CustomOutlinedButton(
-                      text: "Bestätigen",
+                      text: LanguageService.confirmText(),
                       onPressed: () {
                         Navigator.of(context).pop();
                         Navigator.pushNamed(

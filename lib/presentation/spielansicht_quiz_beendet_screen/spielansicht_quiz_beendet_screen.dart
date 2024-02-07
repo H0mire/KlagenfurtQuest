@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 
 class SpielansichtQuizBeendetScreen extends StatelessWidget {
@@ -29,13 +30,12 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 50.v), // Etwas nach unten verschoben
+                SizedBox(height: 50.v),
                 Container(
                   margin: EdgeInsets.only(right: 1.h),
-                  padding: EdgeInsets.fromLTRB(
-                      11.h, 2.v, 11.h, 20.v), // Etwas nach unten verlängert
+                  padding: EdgeInsets.fromLTRB(11.h, 2.v, 11.h, 20.v),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8), // 80% Deckkraft
+                    color: Colors.white.withOpacity(0.8),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10.0),
                       topRight: Radius.circular(10.0),
@@ -52,7 +52,7 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
                       SizedBox(height: 29.v),
                       CustomOutlinedButton(
                         height: 53.v,
-                        text: "Zur Map",
+                        text: LanguageService.goToMapText(),
                         margin: EdgeInsets.only(left: 7.h),
                         onPressed: () {
                           onTapSpielStarten(context);
@@ -89,7 +89,7 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
           SizedBox(
             width: 261.h,
             child: Text(
-              "Es wurden alle Fragen richtig beantwortet",
+              LanguageService.answeredCorrectlyText(),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,

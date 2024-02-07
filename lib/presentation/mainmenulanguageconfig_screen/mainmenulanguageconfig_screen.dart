@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
+import 'package:klagenfurtquest_final/presentation/monitoringview_screen/widgets/studentelementlist_item_widget.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
+import 'package:klagenfurtquest_final/presentation/selectedLanguage.dart';
+import 'package:klagenfurtquest_final/presentation/languageService.dart';
 
 class MainmenulanguageconfigScreen extends StatelessWidget {
   const MainmenulanguageconfigScreen({Key? key}) : super(key: key);
@@ -33,11 +36,12 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                                     child: RichText(
                                         text: TextSpan(children: [
                                           TextSpan(
-                                              text: "Willkommen bei",
+                                              text: LanguageService
+                                                  .welcomeMessage(),
                                               style: CustomTextStyles
                                                   .displaySmallffffa500),
                                           TextSpan(
-                                              text: "KlagenfurtQuest",
+                                              text: "\nKlagenfurtQuest",
                                               style: CustomTextStyles
                                                   .displaySmallffffffff)
                                         ]),
@@ -66,13 +70,14 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                             _buildLanguageSubMenu(context),
                             SizedBox(height: 16.v),
                             CustomOutlinedButton(
-                                text: "Lehrer",
+                                text: LanguageService.teacherText(),
                                 margin: EdgeInsets.only(left: 8.h),
                                 buttonStyle:
                                     CustomButtonStyles.outlinePrimaryTL20,
                                 buttonTextStyle: theme.textTheme.displaySmall!),
                             SizedBox(height: 31.v),
-                            Text("Hilfe", style: theme.textTheme.titleLarge)
+                            Text(LanguageService.helpText(),
+                                style: theme.textTheme.titleLarge)
                           ])))
                 ]))));
   }
@@ -87,7 +92,7 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Padding(
                   padding: EdgeInsets.only(left: 6.h, top: 6.v),
-                  child: Text("Du bist?",
+                  child: Text(LanguageService.youAreText(),
                       style: CustomTextStyles.displaySmallBold))),
           Align(
               alignment: Alignment.center,
@@ -113,7 +118,8 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: 95.h, vertical: 10.v),
                   decoration: AppDecoration.outlinePrimary1.copyWith(
                       borderRadius: BorderRadiusStyle.roundedBorder20),
-                  child: Text("Schüler", style: theme.textTheme.displaySmall))),
+                  child: Text(LanguageService.studentText(),
+                      style: theme.textTheme.displaySmall))),
           Align(
               alignment: Alignment.topCenter,
               child: Container(
@@ -133,13 +139,14 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CustomImageView(
-                                imagePath: ImageConstant.imgBtnlanguages,
+                                imagePath: ImageConstant.imgflaggedeutsch,
                                 height: 60.adaptSize,
                                 width: 60.adaptSize,
                               ),
                               GestureDetector(
                                 onTap: () {
                                   onTapTxtLbGerman(context);
+                                  selectedLanguage = 'Deutsch';
                                 },
                                 child: Padding(
                                   padding:
@@ -148,7 +155,7 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                                     alignment: Alignment(
                                         -0.5, 0.0), // Baseline-Ausrichtung
                                     child: Text(
-                                      "Deutsch",
+                                      LanguageService.germanText(),
                                       style: CustomTextStyles.displaySmallBold,
                                     ),
                                   ),
@@ -163,13 +170,14 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               CustomImageView(
-                                imagePath: ImageConstant.imgImgflagenglish,
+                                imagePath: ImageConstant.imgflaggeenglish,
                                 height: 60.adaptSize,
                                 width: 60.adaptSize,
                               ),
                               GestureDetector(
                                 onTap: () {
                                   onTapTxtLbEnglish(context);
+                                  selectedLanguage = 'English';
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.only(
@@ -178,7 +186,7 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                                     alignment: Alignment(
                                         -0.5, 0.0), // Baseline-Ausrichtung
                                     child: Text(
-                                      "English",
+                                      'English',
                                       style: CustomTextStyles.displaySmallBold,
                                     ),
                                   ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_icon_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
+import 'package:klagenfurtquest_final/presentation/selectedLanguage.dart';
+import 'package:klagenfurtquest_final/presentation/languageService.dart';
 
 class MainmenuScreen extends StatelessWidget {
   const MainmenuScreen({Key? key}) : super(key: key);
@@ -40,11 +42,11 @@ class MainmenuScreen extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "Willkommen bei",
+                                  text: LanguageService.welcomeMessage(),
                                   style: CustomTextStyles.displaySmallffffa500,
                                 ),
                                 TextSpan(
-                                  text: "KlagenfurtQuest",
+                                  text: "\nKlagenfurtQuest",
                                   style: CustomTextStyles.displaySmallffffffff,
                                 ),
                               ],
@@ -93,20 +95,33 @@ class MainmenuScreen extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: 6.v, bottom: 4.v),
-                    child: Text("Du bist?",
+                    child: Text(LanguageService.youAreText(),
                         style: CustomTextStyles.displaySmallBold),
                   ),
-                  CustomIconButton(
-                    height: 55.v,
-                    width: 73.h,
-                    padding: EdgeInsets.all(14.h),
-                    onTap: () {
-                      onTapBtnBtnLanguages(context);
-                    },
-                    child: CustomImageView(
-                      imagePath: ImageConstant.imgBtnlanguages,
+                  if (selectedLanguage == 'Deutsch')
+                    CustomIconButton(
+                      height: 55.v,
+                      width: 73.h,
+                      padding: EdgeInsets.all(12.h),
+                      onTap: () {
+                        onTapBtnBtnLanguages(context);
+                      },
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgflaggedeutsch,
+                      ),
                     ),
-                  ),
+                  if (selectedLanguage == 'English')
+                    CustomIconButton(
+                      height: 55.v,
+                      width: 73.h,
+                      padding: EdgeInsets.all(9.h),
+                      onTap: () {
+                        onTapBtnBtnLanguages(context);
+                      },
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgflaggeenglish,
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -127,7 +142,7 @@ class MainmenuScreen extends StatelessWidget {
             ),
             SizedBox(height: 17.v),
             CustomOutlinedButton(
-              text: "Schüler",
+              text: LanguageService.studentText(),
               margin: EdgeInsets.only(left: 8.h),
               buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
               buttonTextStyle: theme.textTheme.displaySmall!,
@@ -137,7 +152,7 @@ class MainmenuScreen extends StatelessWidget {
             ),
             SizedBox(height: 16.v),
             CustomOutlinedButton(
-              text: "Lehrer",
+              text: LanguageService.teacherText(),
               margin: EdgeInsets.only(left: 8.h),
               buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
               buttonTextStyle: theme.textTheme.displaySmall!,
@@ -146,7 +161,7 @@ class MainmenuScreen extends StatelessWidget {
               },
             ),
             SizedBox(height: 31.v),
-            Text("Hilfe", style: theme.textTheme.titleLarge),
+            Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
           ],
         ),
       ),
