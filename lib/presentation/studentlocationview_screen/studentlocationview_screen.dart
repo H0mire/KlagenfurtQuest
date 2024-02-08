@@ -9,6 +9,7 @@ class StudentlocationviewScreen extends StatelessWidget {
           key: key,
         );
 
+//für das Spectaten der Schüler für den Lehrer, nicht implementiert
   Completer<GoogleMapController> googleMapController = Completer();
 
   @override
@@ -20,7 +21,7 @@ class StudentlocationviewScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der Map
   Widget _buildStudentLocationView(BuildContext context) {
     return SizedBox(
       height: SizeUtils.height,

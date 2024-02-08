@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/presentation/mainmenu_screen/mainmenu_screen.dart';
-import 'package:klagenfurtquest_final/presentation/language_config/mainmenulanguageconfig_screen.dart';
+import 'package:klagenfurtquest_final/presentation/language_config/language_config.dart';
 import 'package:klagenfurtquest_final/presentation/tourist_menu/tourist_menu.dart';
 import 'package:klagenfurtquest_final/presentation/teacher_archive/teacher_archive.dart';
 import 'package:klagenfurtquest_final/presentation/teacher_register/teacher_register.dart';
@@ -29,6 +29,8 @@ import 'package:klagenfurtquest_final/presentation/student_station_quiz/student_
 import 'package:klagenfurtquest_final/presentation/tourist_station_quiz/tourist_station_quiz.dart';
 import 'package:klagenfurtquest_final/presentation/app_navigation/app_navigation_screen.dart';
 
+
+//Routen zum Navigieren der einzelnen Szenen
 class AppRoutes {
   static const String mainmenuScreen = '/mainmenu_screen';
 

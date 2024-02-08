@@ -10,8 +10,9 @@ import 'dart:convert';
 class StudentmenuScreen extends StatelessWidget {
   StudentmenuScreen({Key? key}) : super(key: key);
 
+//Controller für Raumnummer
   TextEditingController recRoomNumberController = TextEditingController();
-
+//Controller für Nickname
   TextEditingController recNicknameController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -78,8 +79,8 @@ class StudentmenuScreen extends StatelessWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      textAlign: TextAlign
-                                                          .center, 
+                                                      textAlign:
+                                                          TextAlign.center,
                                                     ),
                                                   ),
                                                 ),
@@ -88,7 +89,7 @@ class StudentmenuScreen extends StatelessWidget {
                                 ])))))));
   }
 
-  /// Section Widget
+  //Widget für das Erstellen des Menüs
   Widget _buildStudentMenu(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
@@ -215,7 +216,7 @@ class StudentmenuScreen extends StatelessWidget {
     );
   }
 
-  /// Navigates to the roomviewstudentScreen when the action is triggered.
+  //Methode für den Beitreten-Button
   Future<void> onTapBeitreten(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       await showDialog(
@@ -264,11 +265,12 @@ class StudentmenuScreen extends StatelessWidget {
     }
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zum Startmenü
   onTapZurck(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }
 
+//Methode zum Raumbeitreten, um mit Backend zu kommunizieren + Fehler-PopUp
   Future<void> onTapRaumBetreten(BuildContext context) async {
     final String url = 'http://192.168.0.10:8080/rooms';
 

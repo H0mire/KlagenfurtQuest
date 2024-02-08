@@ -43,7 +43,7 @@ class MonitoringviewScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der Liste der Schüler zum Spectaten
   Widget _buildStudentElementList(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(left: 8.h),
@@ -62,12 +62,12 @@ class MonitoringviewScreen extends StatelessWidget {
             }));
   }
 
-  /// Navigates to the teacherselecttourScreen when the action is triggered.
+  //Navigator zurück zum Tour-Auswahlmenü des Teachers
   onTapBeenden(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);
   }
 
-  //Methode für den Icon-Button für die StudentLocation
+  //Methode für den Icon-Button für die StudentLocation - nicht implementiert
   onTapViewStudentLocation(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);
   }

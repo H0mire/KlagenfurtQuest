@@ -73,6 +73,7 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
     );
   }
 
+//Widget zum Erstellen des Inhalts
   Widget _buildResultComponent(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 6.h),
@@ -108,6 +109,7 @@ class SpielansichtQuizBeendetScreen extends StatelessWidget {
     );
   }
 
+//Navigator zurück zur Map
   onTapSpielStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtScreen);
   }

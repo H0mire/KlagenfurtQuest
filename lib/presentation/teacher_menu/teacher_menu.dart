@@ -56,7 +56,7 @@ class TeachermenuScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen des Teacher-Menüs
   Widget _buildTeacherMenuColumn(BuildContext context) {
     return Align(
         alignment: Alignment.bottomCenter,
@@ -113,17 +113,17 @@ class TeachermenuScreen extends StatelessWidget {
             ])));
   }
 
-  /// Navigates to the teacherloginScreen when the action is triggered.
+  //Navigator zum Login-Menü
   onTapAnmelden(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherloginScreen);
   }
 
-  /// Navigates to the teacherregisterScreen when the action is triggered.
+  //Navigator zum Register-Menü
   onTapRegistrieren(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherregisterScreen);
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zurück zum Mainmenü
   onTapZurck(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }

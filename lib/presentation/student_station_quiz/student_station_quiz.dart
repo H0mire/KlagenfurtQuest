@@ -12,6 +12,7 @@ class SpielansichtStationQuizOneScreen extends StatefulWidget {
       _SpielansichtStationQuizOneScreenState();
 }
 
+//Klasse für Auswahl der Antwortmöglichkeiten
 class _SpielansichtStationQuizOneScreenState
     extends State<SpielansichtStationQuizOneScreen> {
   String? selectedAnswerQuestion1 = "";
@@ -27,7 +28,6 @@ class _SpielansichtStationQuizOneScreenState
           child: Stack(
             alignment: Alignment.center,
             children: [
-              // Hintergrund und durchlässiges Rechteck
               CustomImageView(
                 imagePath: ImageConstant.imgGroup3,
                 height: SizeUtils.height,
@@ -44,7 +44,6 @@ class _SpielansichtStationQuizOneScreenState
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         SizedBox(height: 10.v),
-                        // Weißes Rechteck mit Inhalt
                         Container(
                           margin: EdgeInsets.only(right: 1.h),
                           padding: EdgeInsets.symmetric(
@@ -113,7 +112,7 @@ class _SpielansichtStationQuizOneScreenState
     );
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der ersten Frage mit Antwortmöglichkeiten
   Widget _buildQuizQuestion(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 9.h),
@@ -164,17 +163,17 @@ class _SpielansichtStationQuizOneScreenState
     );
   }
 
-  /// Helper Widget für Radio-Buttons
+  //Widget für die Antwortmöglichkeiten
   Widget _buildRadioOption(String label, String? selectedAnswer, String option,
       void Function(String?)? onChanged) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 8.0), // Hier den Abstand einstellen
+      padding: EdgeInsets.only(bottom: 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Radio<String?>(
             value: option,
-            groupValue: selectedAnswer ?? "", // Umwandlung in String
+            groupValue: selectedAnswer ?? "",
             onChanged: onChanged,
           ),
           Expanded(
@@ -185,7 +184,7 @@ class _SpielansichtStationQuizOneScreenState
     );
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der zweiten Frage mit Antworten
   Widget _buildSchillerParkQuestion(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 9.h),
@@ -254,6 +253,7 @@ class _SpielansichtStationQuizOneScreenState
     );
   }
 
+//Methode zum Überprüfen der Antworten und zur Aktualisierung der isSchillerparkStationCompletedStudent-Variable
   void checkAnswersAndNavigate(BuildContext context) {
     if (selectedAnswerQuestion1 == "D" && selectedAnswerQuestion2 == "A") {
       onTapQuizGeschafft(context);
@@ -269,16 +269,13 @@ class _SpielansichtStationQuizOneScreenState
     }
   }
 
+//Navigator zum Station-geschafft-Screen
   onTapQuizGeschafft(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtQuizBeendetScreen);
   }
 
+//Navigator zum Station-gefailed-Screen
   onTapQuizFailed(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtQuizFailedScreen);
-  }
-
-  onTapQuizVollendet(BuildContext context) {
-    Navigator.pushNamed(
-        context, AppRoutes.spielansichtQuizGeschafftThreeScreen);
   }
 }

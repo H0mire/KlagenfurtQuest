@@ -76,7 +76,7 @@ class SpielansichtStationInfosScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Navigates to the spielansichtStationQuizOneScreen when the action is triggered.
+  //Navigator zum Quiz der Station
   onTapZumQuiz(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtStationQuizOneScreen);
   }

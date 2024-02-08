@@ -75,7 +75,7 @@ class QuizFailedScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
+  //Widget zum Erstellen des Inhaltes
   Widget _buildComponentResult(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 6.h),
@@ -111,7 +111,7 @@ class QuizFailedScreen extends StatelessWidget {
     );
   }
 
-  /// Navigates to the spielansichtStationInfosScreen when the action is triggered.
+  //Navigator zu den Infos der Station des Touristen
   onTapStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosOneScreen);
   }

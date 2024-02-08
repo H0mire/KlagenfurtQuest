@@ -25,6 +25,7 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
                       decoration: AppDecoration.outlinePrimary5.copyWith(
                           borderRadius: BorderRadiusStyle.roundedBorder20),
                       child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        //Ergebnisliste der gejointen Spieler nach Spielende - wurde nicht implementiert
                         _buildStudentElementRow1(context),
                         SizedBox(height: 10.v),
                         _buildStudentElementRow2(context,
@@ -51,10 +52,8 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
                       onTapZumMen(context);
                     },
                     decoration: BoxDecoration(
-                      color: Colors
-                          .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
-                      borderRadius: BorderRadius.circular(
-                          20.0), // Optional: abgerundete Ecken
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                   ),
                   SizedBox(height: 11.v),
@@ -63,7 +62,7 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der Ergebnisliste (für den ersten Platz)
   Widget _buildStudentElementRow1(BuildContext context) {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 5.h, vertical: 6.v),
@@ -89,7 +88,7 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
             ]));
   }
 
-  /// Common widget
+  //Widget zum Erstellen der restlichen Teilnehmer
   Widget _buildStudentElementRow2(
     BuildContext context, {
     required String name,
@@ -98,8 +97,7 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 3.h, vertical: 11.v),
       decoration: BoxDecoration(
-        color: Color.fromARGB(
-            255, 223, 221, 221), // Hintergrundfarbe auf hellgrau ändern
+        color: Color.fromARGB(255, 223, 221, 221),
         borderRadius: BorderRadiusStyle.roundedBorder10,
       ),
       child: Row(
@@ -123,7 +121,7 @@ class RaumansichtSchuelerScreen extends StatelessWidget {
     );
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zum Hauptmenü
   onTapZumMen(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }

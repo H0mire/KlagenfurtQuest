@@ -33,13 +33,13 @@ class SpielansichtQuizFinishedScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 50.v), // Etwas nach unten verschoben
+                SizedBox(height: 50.v), 
                 Container(
                   margin: EdgeInsets.only(right: 1.h),
                   padding: EdgeInsets.fromLTRB(
-                      11.h, 2.v, 11.h, 20.v), // Etwas nach unten verlängert
+                      11.h, 2.v, 11.h, 20.v),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8), // 80% Deckkraft
+                    color: Colors.white.withOpacity(0.8), 
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10.0),
                       topRight: Radius.circular(10.0),
@@ -77,6 +77,7 @@ class SpielansichtQuizFinishedScreen extends StatelessWidget {
     );
   }
 
+//Widget zum Erstellen des Inhaltes
   Widget _buildResultComponent(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 6.h),
@@ -112,6 +113,7 @@ class SpielansichtQuizFinishedScreen extends StatelessWidget {
     );
   }
 
+//Navigator zurück zur Map des Touristen
   onTapSpielStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtThreeScreen);
   }

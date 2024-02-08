@@ -69,7 +69,7 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
+  //Widget zum Erstellen des Teacher-Menüs nach dem Einloggen
   Widget _buildLoggedInMenu(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
@@ -139,15 +139,17 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
     );
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zum Mainmenü
   onTapZurck(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }
 
+//Navigator zum Auswählen der Tours für den Lehrer
   onTapTeacherTourSelect(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherselecttourScreen);
   }
 
+//Navigator zum Archiv - nicht implementiert
   onTapTeacherArchiv(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teacherarchiveScreen);
   }

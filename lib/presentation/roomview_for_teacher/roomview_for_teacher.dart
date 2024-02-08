@@ -38,6 +38,7 @@ class RoomviewteacherScreen extends StatelessWidget {
                       decoration: AppDecoration.outlinePrimary3.copyWith(
                           borderRadius: BorderRadiusStyle.roundedBorder20),
                       child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        //Liste mit fiktiven Spielern - wurde nicht vollständig implementiert
                         _buildStudentElementWithCheck(context,
                             userName: "Lena Müller"),
                         SizedBox(height: 11.v),
@@ -75,7 +76,7 @@ class RoomviewteacherScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Common widget
+  //Widget zum Erstellen der gejointen Schüler für Liste
   Widget _buildStudentElementWithCheck(
     BuildContext context, {
     required String userName,
@@ -101,7 +102,7 @@ class RoomviewteacherScreen extends StatelessWidget {
             ]));
   }
 
-  /// Navigates to the monitoringviewScreen when the action is triggered.
+  //Navigator zum Spectatescreen für Lehrer - wurde nicht implementiert
   onTapSpielStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.monitoringviewScreen);
   }

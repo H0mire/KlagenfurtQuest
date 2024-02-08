@@ -74,7 +74,7 @@ class TeacherregisterScreen extends StatelessWidget {
                     ])))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen des Menüs
   Widget _buildMenu(BuildContext context) {
     return Align(
         alignment: Alignment.bottomCenter,
@@ -260,22 +260,25 @@ class TeacherregisterScreen extends StatelessWidget {
             ])));
   }
 
+//Methode zum Saven des JWTTokens nach dem Registrieren
   Future<void> saveJwtToken(String jwtToken) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('jwtToken', jwtToken);
   }
 
+//Methode zum Holen des JWTTokens wenn bereits angemeldet
   Future<String?> getJwtToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('jwtToken');
   }
 
+//Methode zum Kommunizieren mit dem Backend nach dem Drücken des Buttons + Fehler-PopUp
   Future<void> onTapRegistrieren(BuildContext context) async {
     final String url = 'http://192.168.0.10:8080/signup';
 
     final Map<String, String> requestData = {
-      'firstname': "joe",
-      "lastname": "mama",
+      'firstname': "Peter",
+      "lastname": "Pan",
       'username': recBenutzerController.text,
       'mail': recMailController.text,
       'hashedPassword': recPasswordController.text,

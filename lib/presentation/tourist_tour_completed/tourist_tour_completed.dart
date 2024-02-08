@@ -31,7 +31,7 @@ class SpielansichtQuizGeschafftScreen extends StatelessWidget {
                         ])))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen des Inhaltes
   Widget _buildSpielansichtQuiz(BuildContext context) {
     return Container(
         width: 335.h,
@@ -91,7 +91,7 @@ class SpielansichtQuizGeschafftScreen extends StatelessWidget {
         ]));
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zurück zum Mainmenü
   onTapZumMen(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }

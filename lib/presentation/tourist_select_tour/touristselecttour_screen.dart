@@ -100,7 +100,7 @@ class TouristselecttourScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der Parktour zum Auswählen
   Widget _buildParkTour(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(right: 1.h),
@@ -118,6 +118,7 @@ class TouristselecttourScreen extends StatelessWidget {
             }));
   }
 
+//Widget zum Erstellen der Altstadttour zum Auswählen
   Widget _buildAltstadtTour(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(right: 1.h),
@@ -135,12 +136,12 @@ class TouristselecttourScreen extends StatelessWidget {
             }));
   }
 
-  /// Navigates to the spielansichtThreeScreen when the action is triggered.
+  //Navigator zum Spiel der Touristen
   onTapChooseButtonText(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtThreeScreen);
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zurück zum Mainmenü
   onTapAusloggen(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }

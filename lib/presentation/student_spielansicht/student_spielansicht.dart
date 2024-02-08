@@ -15,6 +15,9 @@ class SpielansichtScreen extends StatefulWidget {
   _SpielansichtScreenState createState() => _SpielansichtScreenState();
 }
 
+//Benötigte Variablen für die Map
+//Da die currentLocation des Emulators in den USA ist, wurde eine fakeCurrentPosition in Klagenfurt verwendet
+//Jedoch wurde auch die Version für den wirklichen Standort implementiert
 class _SpielansichtScreenState extends State<SpielansichtScreen> {
   late Timer timer;
   latLng.LatLng firstMarkerPosition = latLng.LatLng(46.625931, 14.302870);
@@ -34,6 +37,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     });
   }
 
+//Methode für Erhalt der aktuellen Position
   Future<void> getCurrentLocation() async {
     Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
@@ -46,6 +50,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     });
   }
 
+//Methode zum Überprüfen, wie weit Player von der Station entfernt ist - wenn innerhalb von 20 Metern, wird das PopUp zum Starten der Station angezeigt
   void checkDistance() {
     double distance = latLng.Distance().as(
       latLng.LengthUnit.Meter,
@@ -68,6 +73,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     }
   }
 
+//Methode welche überprüft, ob Station bereits abgeschlossen ist, sonst wird PopUp nicht mehr angezeigt
   void onTapWeiter() {
     if (isSchillerparkStationCompletedStudent == false) {
       showStartStationDialog(context);
@@ -154,6 +160,7 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     super.dispose();
   }
 
+//Methode für PopUp zum Starten der Station
   void showStartStationDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -215,10 +222,12 @@ class _SpielansichtScreenState extends State<SpielansichtScreen> {
     );
   }
 
+//Navigator zu den Infos der Station
   onTapInfosStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtStationInfosScreen);
   }
 
+//Navigator zum Endscreen, wenn Station abgeschlossen
   onTapTourFinished(BuildContext context) {
     Navigator.pushNamed(
         context, AppRoutes.spielansichtQuizGeschafftThreeScreen);

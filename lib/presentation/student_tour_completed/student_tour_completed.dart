@@ -31,7 +31,7 @@ class SpielansichtQuizGeschafftThreeScreen extends StatelessWidget {
                         ])))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen des Inhalts
   Widget _buildSpielansichtQuiz(BuildContext context) {
     return Container(
         width: 335.h,
@@ -91,7 +91,7 @@ class SpielansichtQuizGeschafftThreeScreen extends StatelessWidget {
         ]));
   }
 
-  /// Navigates to the raumansichtSchuelerScreen when the action is triggered.
+  //Navigator zur Ergebnisliste
   onTapZuDenErgebnissen(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.raumansichtSchuelerScreen);
   }

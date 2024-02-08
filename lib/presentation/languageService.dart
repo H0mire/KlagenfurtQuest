@@ -1,5 +1,7 @@
 import "package:klagenfurtquest_final/presentation/selectedLanguage.dart";
 
+//Klasse für die Mehrsprachigkeit mit Methoden zum Aufrufen
+
 class LanguageService {
   static String welcomeMessage() {
     if (selectedLanguage == "Deutsch") {

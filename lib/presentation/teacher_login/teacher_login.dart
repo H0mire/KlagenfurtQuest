@@ -9,6 +9,7 @@ import 'dart:convert';
 class TeacherloginScreen extends StatelessWidget {
   TeacherloginScreen({Key? key}) : super(key: key);
 
+//Controller für Usernamen und Passwort
   TextEditingController recUsernameController = TextEditingController();
   TextEditingController recPasswordController = TextEditingController();
 
@@ -75,6 +76,7 @@ class TeacherloginScreen extends StatelessWidget {
     );
   }
 
+//Widget zum Erstellen des Login-Menüs des Lehrers
   Widget _buildTeacherLoginMenu(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
@@ -216,6 +218,7 @@ class TeacherloginScreen extends StatelessWidget {
     );
   }
 
+//Methode um nach dem Drücken des Anmelde-Buttons mit dem Backend zu kommunizieren + Fehler-PopUp
   Future<void> onTapAnmelden(BuildContext context) async {
     final String url = 'http://192.168.0.10:8080/login';
 

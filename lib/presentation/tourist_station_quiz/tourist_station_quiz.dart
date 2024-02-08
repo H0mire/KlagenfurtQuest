@@ -27,7 +27,6 @@ class _SpielansichtStationQuizTwoScreenState
           child: Stack(
             alignment: Alignment.center,
             children: [
-              // Hintergrund und durchlässiges Rechteck
               CustomImageView(
                 imagePath: ImageConstant.imgGroup3,
                 height: SizeUtils.height,
@@ -44,7 +43,6 @@ class _SpielansichtStationQuizTwoScreenState
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         SizedBox(height: 10.v),
-                        // Weißes Rechteck mit Inhalt
                         Container(
                           margin: EdgeInsets.only(right: 1.h),
                           padding: EdgeInsets.symmetric(
@@ -113,7 +111,7 @@ class _SpielansichtStationQuizTwoScreenState
     );
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der ersten Frage und den Antworten
   Widget _buildQuizQuestion(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 9.h),
@@ -168,13 +166,13 @@ class _SpielansichtStationQuizTwoScreenState
   Widget _buildRadioOption(String label, String? selectedAnswer, String option,
       void Function(String?)? onChanged) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 8.0), // Hier den Abstand einstellen
+      padding: EdgeInsets.only(bottom: 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Radio<String?>(
             value: option,
-            groupValue: selectedAnswer ?? "", // Umwandlung in String
+            groupValue: selectedAnswer ?? "",
             onChanged: onChanged,
           ),
           Expanded(
@@ -185,7 +183,7 @@ class _SpielansichtStationQuizTwoScreenState
     );
   }
 
-  /// Section Widget
+  //Widget zum Erstellen der zweiten Frage mit Antworten
   Widget _buildSchillerParkQuestion(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 9.h),
@@ -254,6 +252,7 @@ class _SpielansichtStationQuizTwoScreenState
     );
   }
 
+//Methode zum Überprüfen der Antworten
   void checkAnswersAndNavigate(BuildContext context) {
     if (selectedAnswerQuestion1 == "D" && selectedAnswerQuestion2 == "A") {
       onTapQuizGeschafft(context);
@@ -269,15 +268,13 @@ class _SpielansichtStationQuizTwoScreenState
     }
   }
 
+//Navigator zum Station abgeschlossen-Screen
   onTapQuizGeschafft(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtQuizFinishedScreen);
   }
 
+//Navigator zum Station noch nicht abgeschlossen-Screen
   onTapQuizFailed(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.quizFailedScreen);
-  }
-
-  onTapQuizVollendet(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.spielansichtQuizGeschafftScreen);
   }
 }

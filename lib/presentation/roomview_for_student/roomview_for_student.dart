@@ -38,6 +38,7 @@ class RoomviewstudentScreen extends StatelessWidget {
                       decoration: AppDecoration.outlinePrimary3.copyWith(
                           borderRadius: BorderRadiusStyle.roundedBorder20),
                       child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        //Liste mit fiktiven Spielern - wurde nicht vollständig implementiert
                         _buildStudentElement(context, userName: "Lena Müller"),
                         SizedBox(height: 11.v),
                         _buildStudentElement(context,
@@ -61,9 +62,9 @@ class RoomviewstudentScreen extends StatelessWidget {
                     },
                     decoration: BoxDecoration(
                       color: Colors
-                          .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
+                          .orange, 
                       borderRadius: BorderRadius.circular(
-                          20.0), // Optional: abgerundete Ecken
+                          20.0),
                     ),
                   ),
                   SizedBox(height: 10.v),
@@ -72,7 +73,7 @@ class RoomviewstudentScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Common widget
+  //Widget zum Erstellen der gejointen Schüler in der Liste
   Widget _buildStudentElement(
     BuildContext context, {
     required String userName,
@@ -98,7 +99,7 @@ class RoomviewstudentScreen extends StatelessWidget {
             ]));
   }
 
-  /// Navigates to the spielansichtScreen when the action is triggered.
+  //Navigation zur Spielansicht
   onTapSpielStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.spielansichtScreen);
   }

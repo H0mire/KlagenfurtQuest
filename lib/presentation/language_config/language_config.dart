@@ -5,9 +5,11 @@ import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/presentation/selectedLanguage.dart';
 import 'package:klagenfurtquest_final/presentation/languageService.dart';
 
+//KLasse für Bildschirmwidget zum Auswahl der Sprache
 class MainmenulanguageconfigScreen extends StatelessWidget {
   const MainmenulanguageconfigScreen({Key? key}) : super(key: key);
 
+//Widget wird auf dem Bildschirm dargestellt
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,7 +52,7 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                                     ],
                                   ),
                                   textAlign: TextAlign
-                                      .center, // Zentriert den gesamten Text
+                                      .center, 
                                 ),
                               ),
                             ),
@@ -90,7 +92,7 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Section Widget
+  //Widget zum Aufbau des Sprachmenüs zum Auswahl der Sprachen
   Widget _buildLanguageSubMenu(BuildContext context) {
     return SizedBox(
         height: 237.v,
@@ -207,12 +209,12 @@ class MainmenulanguageconfigScreen extends StatelessWidget {
         ]));
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigiert zum Mainmenu wenn eine Sprache ausgewählt
   onTapTxtLbGerman(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigiert zum Mainmenu wenn eine Sprache ausgewählt
   onTapTxtLbEnglish(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }

@@ -56,7 +56,7 @@ class TouristmenuScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Section Widget
+  //Widget zum Erstellen des Touristenmenü
   Widget _buildTouristMenu(BuildContext context) {
     return Align(
         alignment: Alignment.bottomCenter,
@@ -107,12 +107,12 @@ class TouristmenuScreen extends StatelessWidget {
                 ])));
   }
 
-  /// Navigates to the touristselecttourScreen when the action is triggered.
+  //Navigator zum Auswahlmenü für Touristen
   onTapStarten(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.touristselecttourScreen);
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zurück zum Hauptmenü
   onTapZurck(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }

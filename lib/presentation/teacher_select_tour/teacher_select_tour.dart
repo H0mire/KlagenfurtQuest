@@ -100,7 +100,7 @@ class TeacherselecttourScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Section Widget
+  //Widget zum ERstellen der ParkTour
   Widget _buildParkTour(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(right: 1.h),
@@ -118,6 +118,7 @@ class TeacherselecttourScreen extends StatelessWidget {
             }));
   }
 
+//Widget zum Erstellen der Altstadttour
   Widget _buildAltstadtTour(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(right: 1.h),
@@ -133,12 +134,12 @@ class TeacherselecttourScreen extends StatelessWidget {
             }));
   }
 
-  /// Navigates to the roomviewteacherScreen when the action is triggered.
+  //Navigator zum Erstellen des Raums und zum Weiterleiten zur nächsten Szene
   onTapCreateButtonText(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.roomviewteacherScreen);
   }
 
-  /// Navigates to the mainmenuScreen when the action is triggered.
+  //Navigator zurück zum Hauptmenü
   onTapAusloggen(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenuScreen);
   }

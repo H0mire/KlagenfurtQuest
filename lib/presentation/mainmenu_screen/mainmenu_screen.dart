@@ -5,6 +5,7 @@ import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/presentation/selectedLanguage.dart';
 import 'package:klagenfurtquest_final/presentation/languageService.dart';
 
+//Klasse für den Mainmenu-Bildschirm
 class MainmenuScreen extends StatelessWidget {
   const MainmenuScreen({Key? key}) : super(key: key);
 
@@ -68,6 +69,7 @@ class MainmenuScreen extends StatelessWidget {
     );
   }
 
+//Widget zum Aufbau des Menüs
   Widget _buildMenu(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
@@ -136,9 +138,9 @@ class MainmenuScreen extends StatelessWidget {
               },
               decoration: BoxDecoration(
                 color: Colors
-                    .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
+                    .orange, 
                 borderRadius:
-                    BorderRadius.circular(20.0), // Optional: abgerundete Ecken
+                    BorderRadius.circular(20.0), 
               ),
             ),
             SizedBox(height: 17.v),
@@ -169,18 +171,19 @@ class MainmenuScreen extends StatelessWidget {
     );
   }
 
+//Navigation zur Sprachauswahl
   onTapBtnBtnLanguages(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenulanguageconfigScreen);
   }
-
+//Navigation zum Tourist-Menü
   onTapTourist(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.touristmenuScreen);
   }
-
+//Navigation zum Student-Menü
   onTapSchler(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.studentmenuScreen);
   }
-
+//Navigation zum Teacher-Menü
   onTapLehrer(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teachermenuScreen);
   }
