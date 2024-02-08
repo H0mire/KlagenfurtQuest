@@ -53,28 +53,36 @@ class StudentmenuScreen extends StatelessWidget {
                                                     alignment:
                                                         Alignment.center),
                                                 Align(
-                                                    alignment:
-                                                        Alignment.topCenter,
-                                                    child: Container(
-                                                        width: 280.h,
-                                                        margin: EdgeInsets.only(
-                                                            top: 22.v),
-                                                        child: RichText(
-                                                            text: TextSpan(
-                                                                children: [
-                                                                  TextSpan(
-                                                                      text: LanguageService
-                                                                          .welcomeMessage(),
-                                                                      style: CustomTextStyles
-                                                                          .displaySmallffffa500),
-                                                                  TextSpan(
-                                                                      text:
-                                                                          "\nKlagenfurtQuest",
-                                                                      style: CustomTextStyles
-                                                                          .displaySmallffffffff)
-                                                                ]),
-                                                            textAlign: TextAlign
-                                                                .left)))
+                                                  alignment:
+                                                      Alignment.topCenter,
+                                                  child: Container(
+                                                    width: 280.h,
+                                                    margin: EdgeInsets.only(
+                                                        top: 22.v),
+                                                    decoration: AppDecoration
+                                                        .outlineBlack,
+                                                    child: RichText(
+                                                      text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                            text: LanguageService
+                                                                .welcomeMessage(),
+                                                            style: CustomTextStyles
+                                                                .displaySmallffffa500,
+                                                          ),
+                                                          TextSpan(
+                                                            text:
+                                                                "\nKlagenfurtQuest",
+                                                            style: CustomTextStyles
+                                                                .displaySmallffffffff,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      textAlign: TextAlign
+                                                          .center, 
+                                                    ),
+                                                  ),
+                                                ),
                                               ]))),
                                   _buildStudentMenu(context)
                                 ])))))));

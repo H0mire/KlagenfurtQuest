@@ -51,7 +51,8 @@ class MainmenuScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            textAlign: TextAlign.center,
+                            textAlign:
+                                TextAlign.center, 
                           ),
                         ),
                       ),

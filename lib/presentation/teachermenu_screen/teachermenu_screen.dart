@@ -27,23 +27,30 @@ class TeachermenuScreen extends StatelessWidget {
                                 width: 360.h,
                                 alignment: Alignment.center),
                             Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                    width: 280.h,
-                                    margin: EdgeInsets.only(top: 22.v),
-                                    decoration: AppDecoration.outlineBlack,
-                                    child: RichText(
-                                        text: TextSpan(children: [
-                                          TextSpan(
-                                              text: LanguageService.welcomeMessage(),
-                                              style: CustomTextStyles
-                                                  .displaySmallffffa500),
-                                          TextSpan(
-                                              text: "\nKlagenfurtQuest",
-                                              style: CustomTextStyles
-                                                  .displaySmallffffffff)
-                                        ]),
-                                        textAlign: TextAlign.left)))
+                              alignment: Alignment.topCenter,
+                              child: Container(
+                                width: 280.h,
+                                margin: EdgeInsets.only(top: 22.v),
+                                decoration: AppDecoration.outlineBlack,
+                                child: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: LanguageService.welcomeMessage(),
+                                        style: CustomTextStyles
+                                            .displaySmallffffa500,
+                                      ),
+                                      TextSpan(
+                                        text: "\nKlagenfurtQuest",
+                                        style: CustomTextStyles
+                                            .displaySmallffffffff,
+                                      ),
+                                    ],
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
                           ]))),
                   _buildTeacherMenuColumn(context)
                 ]))));
@@ -68,7 +75,8 @@ class TeachermenuScreen extends StatelessWidget {
                 ]),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               SizedBox(height: 16.v),
-              Text(LanguageService.teacherText(), style: CustomTextStyles.displaySmallBold),
+              Text(LanguageService.teacherText(),
+                  style: CustomTextStyles.displaySmallBold),
               SizedBox(height: 29.v),
               CustomOutlinedButton(
                 text: LanguageService.loginText(),
@@ -100,7 +108,8 @@ class TeachermenuScreen extends StatelessWidget {
                     onTapZurck(context);
                   }),
               SizedBox(height: 31.v),
-              Text(LanguageService.helpText(), style: theme.textTheme.titleLarge)
+              Text(LanguageService.helpText(),
+                  style: theme.textTheme.titleLarge)
             ])));
   }
 

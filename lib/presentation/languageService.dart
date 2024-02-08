@@ -5,7 +5,7 @@ class LanguageService {
     if (selectedLanguage == "Deutsch") {
       return "Willkommen bei";
     } else {
-      return "   Welcome to";
+      return "Welcome to";
     }
   }
 

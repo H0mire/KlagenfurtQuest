@@ -24,43 +24,54 @@ class TeacherregisterScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             resizeToAvoidBottomInset: false,
-            body: SizedBox(
-                height: SizeUtils.height,
-                width: double.maxFinite,
-                child: Stack(alignment: Alignment.bottomCenter, children: [
-                  Align(
-                      alignment: Alignment.topCenter,
-                      child: SizedBox(
-                          height: 498.v,
-                          width: double.maxFinite,
-                          child:
-                              Stack(alignment: Alignment.topCenter, children: [
-                            CustomImageView(
-                                imagePath: ImageConstant.imgAppbackground,
-                                height: 498.v,
-                                width: 360.h,
-                                alignment: Alignment.center),
-                            Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                    width: 280.h,
-                                    margin: EdgeInsets.only(top: 20.v),
-                                    child: RichText(
-                                        text: TextSpan(children: [
-                                          TextSpan(
-                                              text: LanguageService
-                                                  .welcomeMessage(),
-                                              style: CustomTextStyles
-                                                  .displaySmallffffa500),
-                                          TextSpan(
-                                              text: "\nKlagenfurtQuest",
-                                              style: CustomTextStyles
-                                                  .displaySmallffffffff)
-                                        ]),
-                                        textAlign: TextAlign.left)))
-                          ]))),
-                  _buildMenu(context)
-                ]))));
+            body: SingleChildScrollView(
+                child: SizedBox(
+                    height: SizeUtils.height,
+                    width: double.maxFinite,
+                    child: Stack(alignment: Alignment.bottomCenter, children: [
+                      Align(
+                          alignment: Alignment.topCenter,
+                          child: SizedBox(
+                              height: 498.v,
+                              width: double.maxFinite,
+                              child: Stack(
+                                  alignment: Alignment.topCenter,
+                                  children: [
+                                    CustomImageView(
+                                        imagePath:
+                                            ImageConstant.imgAppbackground,
+                                        height: 498.v,
+                                        width: 360.h,
+                                        alignment: Alignment.center),
+                                    Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Container(
+                                        width: 280.h,
+                                        margin: EdgeInsets.only(top: 22.v),
+                                        decoration: AppDecoration.outlineBlack,
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: LanguageService
+                                                    .welcomeMessage(),
+                                                style: CustomTextStyles
+                                                    .displaySmallffffa500,
+                                              ),
+                                              TextSpan(
+                                                text: "\nKlagenfurtQuest",
+                                                style: CustomTextStyles
+                                                    .displaySmallffffffff,
+                                              ),
+                                            ],
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ),
+                                  ]))),
+                      _buildMenu(context)
+                    ])))));
   }
 
   /// Section Widget

@@ -26,7 +26,7 @@ class StudentlocationviewScreen extends StatelessWidget {
       height: SizeUtils.height,
       width: double.maxFinite,
       child: GoogleMap(
-        //TODO: Add your Google Maps API key in AndroidManifest.xml and pod file
+        //Implementation OSM, CurrentLocationPlayer etc.
         mapType: MapType.normal,
         initialCameraPosition: CameraPosition(
           target: LatLng(

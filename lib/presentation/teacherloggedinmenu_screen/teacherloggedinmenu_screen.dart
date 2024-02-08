@@ -38,6 +38,7 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
                         child: Container(
                           width: 280.h,
                           margin: EdgeInsets.only(top: 22.v),
+                          decoration: AppDecoration.outlineBlack,
                           child: RichText(
                             text: TextSpan(
                               children: [
@@ -51,7 +52,8 @@ class TeacherloggedinmenuScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            textAlign: TextAlign.left,
+                            textAlign:
+                                TextAlign.center, 
                           ),
                         ),
                       ),

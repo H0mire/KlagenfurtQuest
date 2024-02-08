@@ -44,7 +44,8 @@ class TeacherloginScreen extends StatelessWidget {
                         alignment: Alignment.topCenter,
                         child: Container(
                           width: 280.h,
-                          margin: EdgeInsets.only(top: 20.v),
+                          margin: EdgeInsets.only(top: 22.v),
+                          decoration: AppDecoration.outlineBlack,
                           child: RichText(
                             text: TextSpan(
                               children: [
@@ -58,7 +59,7 @@ class TeacherloginScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            textAlign: TextAlign.left,
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),

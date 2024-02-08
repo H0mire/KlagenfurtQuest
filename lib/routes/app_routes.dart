@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/presentation/mainmenu_screen/mainmenu_screen.dart';
-import 'package:klagenfurtquest_final/presentation/mainmenulanguageconfig_screen/mainmenulanguageconfig_screen.dart';
+import 'package:klagenfurtquest_final/presentation/language_config/mainmenulanguageconfig_screen.dart';
 import 'package:klagenfurtquest_final/presentation/touristmenu_screen/touristmenu_screen.dart';
 import 'package:klagenfurtquest_final/presentation/teacherarchive_screen/teacherarchive_screen.dart';
 import 'package:klagenfurtquest_final/presentation/teacherregister_screen/teacherregister_screen.dart';
@@ -28,7 +28,7 @@ import 'package:klagenfurtquest_final/presentation/spielansicht_station_infos_on
 import 'package:klagenfurtquest_final/presentation/studentmenu_screen/studentmenu_screen.dart';
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_quiz_one_screen/spielansicht_station_quiz_one_screen.dart';
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_quiz_two_screen/spielansicht_station_quiz_two_screen.dart';
-import 'package:klagenfurtquest_final/presentation/app_navigation_screen/app_navigation_screen.dart';
+import 'package:klagenfurtquest_final/presentation/app_navigation/app_navigation_screen.dart';
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_starten_dialog/spielansicht_station_starten_dialog.dart';
 import 'package:klagenfurtquest_final/presentation/spielansicht_station_starting_dialog/spielansicht_station_starting_dialog.dart';
 

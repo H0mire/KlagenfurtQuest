@@ -29,22 +29,31 @@ class TeacherarchiveScreen extends StatelessWidget {
                                 width: 360.h,
                                 alignment: Alignment.center),
                             Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                    width: 280.h,
-                                    margin: EdgeInsets.only(top: 22.v),
-                                    child: RichText(
-                                        text: TextSpan(children: [
-                                          TextSpan(
-                                              text: LanguageService.welcomeBackText(),
-                                              style: CustomTextStyles
-                                                  .displaySmallffffa500),
-                                          TextSpan(
-                                              text: "\nKlagenfurtQuest",
-                                              style: CustomTextStyles
-                                                  .displaySmallffffffff)
-                                        ]),
-                                        textAlign: TextAlign.left)))
+                              alignment: Alignment.topCenter,
+                              child: Container(
+                                width: 280.h,
+                                margin: EdgeInsets.only(top: 22.v),
+                                decoration: AppDecoration.outlineBlack,
+                                child: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: LanguageService.welcomeMessage(),
+                                        style: CustomTextStyles
+                                            .displaySmallffffa500,
+                                      ),
+                                      TextSpan(
+                                        text: "\nKlagenfurtQuest",
+                                        style: CustomTextStyles
+                                            .displaySmallffffffff,
+                                      ),
+                                    ],
+                                  ),
+                                  textAlign: TextAlign
+                                      .center,
+                                ),
+                              ),
+                            ),
                           ]))),
                   Align(
                       alignment: Alignment.bottomCenter,
@@ -81,7 +90,8 @@ class TeacherarchiveScreen extends StatelessWidget {
                                   onTapAusloggen(context);
                                 }),
                             SizedBox(height: 16.v),
-                            Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
+                            Text(LanguageService.helpText(),
+                                style: theme.textTheme.titleLarge),
                             SizedBox(height: 15.v)
                           ])))
                 ]))));
