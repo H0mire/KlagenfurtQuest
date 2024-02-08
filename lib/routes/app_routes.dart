@@ -9,9 +9,8 @@ import 'package:klagenfurtquest_final/presentation/tourist_tour_completed/touris
 import 'package:klagenfurtquest_final/presentation/student_station_failed/student_station_failed.dart';
 import 'package:klagenfurtquest_final/presentation/teacher_logged_in/teacher_logged_in.dart';
 import 'package:klagenfurtquest_final/presentation/student_spielansicht/student_spielansicht.dart';
-import 'package:klagenfurtquest_final/presentation/spielansicht_quiz_finished_screen/spielansicht_quiz_finished_screen.dart';
+import 'package:klagenfurtquest_final/presentation/tourist_station_finished/tourist_station_finished.dart';
 import 'package:klagenfurtquest_final/presentation/teacher_spectate_students/teacher_spectate_students.dart';
-import 'package:klagenfurtquest_final/presentation/kick_spielansicht_station_quiz_screen/spielansicht_station_quiz_screen.dart';
 import 'package:klagenfurtquest_final/presentation/student_tour_completed/student_tour_completed.dart';
 import 'package:klagenfurtquest_final/presentation/teacher_menu/teacher_menu.dart';
 import 'package:klagenfurtquest_final/presentation/roomview_for_student/roomview_for_student.dart';
@@ -29,8 +28,6 @@ import 'package:klagenfurtquest_final/presentation/student_enter_room/student_en
 import 'package:klagenfurtquest_final/presentation/student_station_quiz/student_station_quiz.dart';
 import 'package:klagenfurtquest_final/presentation/tourist_station_quiz/tourist_station_quiz.dart';
 import 'package:klagenfurtquest_final/presentation/app_navigation/app_navigation_screen.dart';
-import 'package:klagenfurtquest_final/presentation/kick_spielansicht_station_starten_dialog/spielansicht_station_starten_dialog.dart';
-import 'package:klagenfurtquest_final/presentation/kick%20-%20spielansicht_station_starting_dialog/spielansicht_station_starting_dialog.dart';
 
 class AppRoutes {
   static const String mainmenuScreen = '/mainmenu_screen';
@@ -126,7 +123,6 @@ class AppRoutes {
     spielansichtQuizFinishedScreen: (context) =>
         SpielansichtQuizFinishedScreen(),
     monitoringviewScreen: (context) => MonitoringviewScreen(),
-    spielansichtStationQuizScreen: (context) => SpielansichtStationQuizScreen(),
     spielansichtQuizGeschafftThreeScreen: (context) =>
         SpielansichtQuizGeschafftThreeScreen(),
     teachermenuScreen: (context) => TeachermenuScreen(),
@@ -149,8 +145,5 @@ class AppRoutes {
     spielansichtStationQuizTwoScreen: (context) =>
         SpielansichtStationQuizTwoScreen(),
     appNavigationScreen: (context) => AppNavigationScreen(),
-    spielansichtStationStarten: (context) => SpielansichtStationStartenDialog(),
-    spielansichtStationStarting: (context) =>
-        SpielansichtStationStartingDialog()
   };
 }

@@ -1,7 +1,7 @@
 import 'package:klagenfurtquest_final/presentation/LanguageService.dart';
 
-import '../tourist_select_tour/widgets/tourcomponent1_item_widget.dart';
-import '../tourist_select_tour/widgets/tourcomponent2_item_widget.dart';
+import 'widgets/tourcomponent1_item_widget.dart';
+import 'widgets/tourcomponent2_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
