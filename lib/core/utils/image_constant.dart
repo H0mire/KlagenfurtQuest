@@ -3,7 +3,7 @@ class ImageConstant {
   static String imagePath = 'assets/images';
 
   // MainMenuLanguageConfig images
-  static String imgImgflagenglish = '$imagePath/img_imgflagenglish.png';
+  static String imgflaggeenglish = '$imagePath/img_flaggeenglish.png';
 
   // MonitoringView images
   static String imgBtnmessage = '$imagePath/img_btnmessage.svg';
@@ -13,7 +13,7 @@ class ImageConstant {
   // Common images
   static String imgAppbackground = '$imagePath/img_appbackground.png';
 
-  static String imgBtnlanguages = '$imagePath/img_btnlanguages.png';
+  static String imgflaggedeutsch = '$imagePath/img_flaggedeutsch.png';
 
   static String imgImgpreview = '$imagePath/img_imgpreview.png';
 
@@ -40,4 +40,14 @@ class ImageConstant {
   static String imgImgquizbg = '$imagePath/img_imgquizbg.png';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
+
+  static String imgFailed = '$imagePath/img_failed.png';
+
+  static String imgParty = '$imagePath/img_party.png';
+
+  static String imgApplaus = '$imagePath/img_applaus.png';
+
+  static String imgPokal = '$imagePath/img_pokal.png';
+
+  static String imgLocate='$imagePath/img_locate.png';
 }

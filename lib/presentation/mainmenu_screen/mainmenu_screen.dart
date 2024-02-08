@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
 import 'package:klagenfurtquest_final/widgets/custom_icon_button.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
+import 'package:klagenfurtquest_final/presentation/selectedLanguage.dart';
+import 'package:klagenfurtquest_final/presentation/languageService.dart';
 
+//Klasse für den Mainmenu-Bildschirm
 class MainmenuScreen extends StatelessWidget {
   const MainmenuScreen({Key? key}) : super(key: key);
 
@@ -40,16 +43,17 @@ class MainmenuScreen extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "Willkommen bei",
+                                  text: LanguageService.welcomeMessage(),
                                   style: CustomTextStyles.displaySmallffffa500,
                                 ),
                                 TextSpan(
-                                  text: "KlagenfurtQuest",
+                                  text: "\nKlagenfurtQuest",
                                   style: CustomTextStyles.displaySmallffffffff,
                                 ),
                               ],
                             ),
-                            textAlign: TextAlign.center,
+                            textAlign:
+                                TextAlign.center, 
                           ),
                         ),
                       ),
@@ -65,6 +69,7 @@ class MainmenuScreen extends StatelessWidget {
     );
   }
 
+//Widget zum Aufbau des Menüs
   Widget _buildMenu(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
@@ -93,20 +98,33 @@ class MainmenuScreen extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: 6.v, bottom: 4.v),
-                    child: Text("Du bist?",
+                    child: Text(LanguageService.youAreText(),
                         style: CustomTextStyles.displaySmallBold),
                   ),
-                  CustomIconButton(
-                    height: 55.v,
-                    width: 73.h,
-                    padding: EdgeInsets.all(14.h),
-                    onTap: () {
-                      onTapBtnBtnLanguages(context);
-                    },
-                    child: CustomImageView(
-                      imagePath: ImageConstant.imgBtnlanguages,
+                  if (selectedLanguage == 'Deutsch')
+                    CustomIconButton(
+                      height: 55.v,
+                      width: 73.h,
+                      padding: EdgeInsets.all(12.h),
+                      onTap: () {
+                        onTapBtnBtnLanguages(context);
+                      },
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgflaggedeutsch,
+                      ),
                     ),
-                  ),
+                  if (selectedLanguage == 'English')
+                    CustomIconButton(
+                      height: 55.v,
+                      width: 73.h,
+                      padding: EdgeInsets.all(9.h),
+                      onTap: () {
+                        onTapBtnBtnLanguages(context);
+                      },
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgflaggeenglish,
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -120,14 +138,14 @@ class MainmenuScreen extends StatelessWidget {
               },
               decoration: BoxDecoration(
                 color: Colors
-                    .orange, // Ihre gewünschte orangefarbene Hintergrundfarbe
+                    .orange, 
                 borderRadius:
-                    BorderRadius.circular(20.0), // Optional: abgerundete Ecken
+                    BorderRadius.circular(20.0), 
               ),
             ),
             SizedBox(height: 17.v),
             CustomOutlinedButton(
-              text: "Schüler",
+              text: LanguageService.studentText(),
               margin: EdgeInsets.only(left: 8.h),
               buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
               buttonTextStyle: theme.textTheme.displaySmall!,
@@ -137,7 +155,7 @@ class MainmenuScreen extends StatelessWidget {
             ),
             SizedBox(height: 16.v),
             CustomOutlinedButton(
-              text: "Lehrer",
+              text: LanguageService.teacherText(),
               margin: EdgeInsets.only(left: 8.h),
               buttonStyle: CustomButtonStyles.outlinePrimaryTL20,
               buttonTextStyle: theme.textTheme.displaySmall!,
@@ -146,25 +164,26 @@ class MainmenuScreen extends StatelessWidget {
               },
             ),
             SizedBox(height: 31.v),
-            Text("Hilfe", style: theme.textTheme.titleLarge),
+            Text(LanguageService.helpText(), style: theme.textTheme.titleLarge),
           ],
         ),
       ),
     );
   }
 
+//Navigation zur Sprachauswahl
   onTapBtnBtnLanguages(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.mainmenulanguageconfigScreen);
   }
-
+//Navigation zum Tourist-Menü
   onTapTourist(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.touristmenuScreen);
   }
-
+//Navigation zum Student-Menü
   onTapSchler(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.studentmenuScreen);
   }
-
+//Navigation zum Teacher-Menü
   onTapLehrer(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.teachermenuScreen);
   }

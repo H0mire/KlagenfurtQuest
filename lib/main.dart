@@ -10,7 +10,7 @@ void main() {
     DeviceOrientation.portraitUp,
   ]);
 
-  ///Please update theme as per your need if required.
+  //Starten der Applikation
   ThemeHelper().changeTheme('primary');
   runApp(MyApp());
 }
@@ -22,8 +22,9 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return MaterialApp(
           theme: theme,
-          title: 'klagenfurtquest_final',
+          title: 'KlagenfurtQuest',
           debugShowCheckedModeBanner: false,
+          //Szene beim Öffnen der App
           initialRoute: AppRoutes.mainmenuScreen,
           routes: AppRoutes.routes,
         );
