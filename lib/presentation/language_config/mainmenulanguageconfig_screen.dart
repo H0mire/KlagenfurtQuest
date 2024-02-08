@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klagenfurtquest_final/core/app_export.dart';
-import 'package:klagenfurtquest_final/presentation/monitoringview_screen/widgets/studentelementlist_item_widget.dart';
+import 'package:klagenfurtquest_final/presentation/teacher_spectate_students/widgets/studentelementlist_item_widget.dart';
 import 'package:klagenfurtquest_final/widgets/custom_outlined_button.dart';
 import 'package:klagenfurtquest_final/presentation/selectedLanguage.dart';
 import 'package:klagenfurtquest_final/presentation/languageService.dart';

@@ -1,1 +1,2 @@
-bool isSchillerparkStationCompleted = false;
+bool isSchillerparkStationCompletedStudent = false;
+bool isSchillerparkStationCompletedTourist = false;
